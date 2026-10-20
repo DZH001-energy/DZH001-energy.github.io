@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Zhihua Deng — Energy Systems Modeling, Control &amp; AI | ERI@N, NTU Singapore</title>
+<meta name="description" content="Dr. Zhihua Deng, Senior Research Engineer I at the Energy Research Institute at NTU (ERI@N), Nanyang Technological University. Research on modeling, control and optimization of renewable energy systems, fuel cells, hydrogen and ammonia, and AI for energy.">
+<meta name="author" content="Zhihua Deng">
+<meta name="keywords" content="Zhihua Deng, PEM fuel cell, solid oxide fuel cell, hydrogen, ammonia, energy management, machine learning, model predictive control, remaining useful life, ERI@N, NTU">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dr. Zhihua Deng — Energy Systems, Control &amp; AI">
+<meta property="og:description" content="Senior Research Engineer I, Energy Research Institute at NTU (ERI@N). Modeling, control and optimization of renewable energy systems with AI.">
+<meta property="og:image" content="assets/img/profile.svg">
+<meta name="theme-color" content="#0A1A2F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A1A2F'/%3E%3Cpath d='M22 16h20l-20 32h20' stroke='%2314C0AE' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ============ SVG icon sprite ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h13A2.5 2.5 0 0 1 21 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 16.5v-9Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 8 8 5 8-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5S14.4 18.1 12 20.5c-2.4-2.4-3.6-5.2-3.6-8.5S9.6 5.9 12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M12 4 3.5 8.2 12 12.4l8.5-4.2L12 4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6.6 10.3v4.9c0 1.7 2.4 3.1 5.4 3.1s5.4-1.4 5.4-3.1v-4.9M20.5 8.2v5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6.5-5.6 6.5-10.2A6.5 6.5 0 0 0 5.5 10.8C5.5 15.4 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10.6" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3.5H7.5A2 2 0 0 0 5.5 5.5v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8l-4.5-4.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M13.8 3.6V8.2h4.6M8.6 13h6.8M8.6 16.4h4.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3-3a3.6 3.6 0 0 0-5.1-5.1l-1.3 1.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3 3a3.6 3.6 0 1 0 5.1 5.1l1.3-1.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3.6v2.2M12 18.2v2.2M4.4 12H6.6M17.4 12h2.2M6.4 6.4l1.6 1.6M16 16l1.6 1.6M17.6 6.4 16 8M8 16l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6.5 6.5 11 11m0-11-11 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.2 3.5 6.8 13.2h4.3l-1.1 7.3 6.4-9.7h-4.3l1.1-7.3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="10" width="4" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9.3 6.5V4.2M14.7 6.5V4.2M9.3 19.8v-2.3M14.7 19.8v-2.3M6.5 9.3H4.2M6.5 14.7H4.2M19.8 9.3h-2.3M19.8 14.7h-2.3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3.6s5.6 6 5.6 9.7a5.6 5.6 0 0 1-11.2 0C6.4 9.6 12 3.6 12 3.6Z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-7 5-12 14-12 0 9-5 13-11 13H5v-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5 19c2.5-4.5 5.5-7 9.5-8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-graph" viewBox="0 0 24 24"><path d="M4 20V9.5M10 20V4.5M16 20v-7M22 20H2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-ctrl" viewBox="0 0 24 24"><circle cx="7" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 12h4M14.6 10.2 13 12l1.6 1.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-time" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.2V12l3.4 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ Skip link ============ -->
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ Header / Nav ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="brand" href="#home">
+      <span class="brand-mark" aria-hidden="true">ZD</span>
+      <span class="brand-text">
+        <strong id="brandName">Zhihua Deng</strong>
+        <em id="brandRole">Energy · Control · AI</em>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg class="ic"><use href="#i-menu"/></svg>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <ul id="navList"></ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Light / dark">
+        <svg class="ic"><use href="#i-time"/></svg>
+      </button>
+      <button class="icon-btn" id="settingsBtn" aria-label="Appearance settings" title="Appearance">
+        <svg class="ic"><use href="#i-gear"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow" id="heroEyebrow"></p>
+      <h1 class="hero-name" id="heroName"></h1>
+      <p class="hero-title" id="heroTitle"></p>
+      <p class="hero-affil" id="heroAffil"></p>
+      <p class="hero-tagline" id="heroTagline"></p>
+      <div class="hero-actions" id="heroActions"></div>
+      <ul class="hero-contact" id="heroContact"></ul>
+    </div>
+    <div class="hero-card">
+      <div class="portrait-wrap">
+        <div class="portrait-ring">
+          <img id="heroPhoto" src="assets/img/profile.svg" alt="Portrait of Dr. Zhihua Deng" width="800" height="1000">
+        </div>
+        <div class="portrait-badge" id="heroBadge"></div>
+      </div>
+      <p class="photo-tip" id="photoTip">
+        当前为占位图 · 换成 <b>4:5 竖版半身照</b>（建议 800×1000，JPG &lt; 500 KB）
+      </p>
+      <div class="stat-grid" id="statGrid"></div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#about" aria-label="Scroll down"><svg class="ic"><use href="#i-chev"/></svg></a>
+</section>
+
+<main id="main">
+
+  <!-- ============ About ============ -->
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <h2>About</h2>
+        <p class="sec-sub">Who I am and what drives my research</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-body" id="aboutBody"></div>
+        <aside class="about-side">
+          <div class="panel">
+            <h3>Research Areas</h3>
+            <ul class="tag-cloud" id="aboutAreas"></ul>
+          </div>
+          <div class="panel" id="aboutFacts"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ News ============ -->
+  <section class="sec sec-alt" id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <h2>News</h2>
+        <p class="sec-sub">Latest updates — newest first</p>
+      </div>
+      <ul class="news-list" id="newsList"></ul>
+    </div>
+  </section>
+
+  <!-- ============ Research ============ -->
+  <section class="sec" id="research">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <h2>Research</h2>
+        <p class="sec-sub">Directions, methods and the problems I care about</p>
+      </div>
+      <div class="card-grid" id="researchGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ Publications ============ -->
+  <section class="sec sec-alt" id="publications">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h2>Publications</h2>
+        <p class="sec-sub" id="pubCount"></p>
+      </div>
+
+      <div class="filter-bar">
+        <div class="chips" id="pubTypeChips"></div>
+        <div class="filter-right">
+          <div class="chips" id="pubYearChips"></div>
+          <label class="search">
+            <input type="search" id="pubSearch" placeholder="Search title, venue, author…" aria-label="Search publications">
+          </label>
+        </div>
+      </div>
+
+      <div id="pubGroups"></div>
+    </div>
+  </section>
+
+  <!-- ============ Patents ============ -->
+  <section class="sec" id="patents">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <h2>Patents</h2>
+        <p class="sec-sub">Granted patents and technology transfer</p>
+      </div>
+      <ol class="entry-list numbered" id="patentList"></ol>
+    </div>
+  </section>
+
+  <!-- ============ Talks ============ -->
+  <section class="sec sec-alt" id="talks">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">06</span>
+        <h2>Conference Presentations</h2>
+        <p class="sec-sub">Invited, thematic and contributed talks</p>
+      </div>
+      <ul class="timeline" id="talkList"></ul>
+    </div>
+  </section>
+
+  <!-- ============ Projects ============ -->
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">07</span>
+        <h2>Sponsored Research Projects</h2>
+        <p class="sec-sub">Grants, funders and roles</p>
+      </div>
+      <div class="card-grid" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ Academic Service ============ -->
+  <section class="sec sec-alt" id="service">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">08</span>
+        <h2>Academic Service</h2>
+        <p class="sec-sub">Editorial roles, committees and peer review</p>
+      </div>
+      <div class="service-grid" id="serviceGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ Teaching & Students ============ -->
+  <section class="sec" id="teaching">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">09</span>
+        <h2>Teaching &amp; Supervision</h2>
+        <p class="sec-sub">Executive education, lecturing and student mentoring</p>
+      </div>
+      <div class="teach-grid" id="teachList"></div>
+      <h3 class="sub-head">Student Supervision</h3>
+      <div class="student-grid" id="studentGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ Awards ============ -->
+  <section class="sec sec-alt" id="awards">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">10</span>
+        <h2>Honors &amp; Awards</h2>
+        <p class="sec-sub">Scholarships, dissertation and competition awards</p>
+      </div>
+      <div class="award-grid" id="awardGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ Background (Experience + Education) ============ -->
+  <section class="sec" id="background">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">11</span>
+        <h2>Background</h2>
+        <p class="sec-sub">Academic and professional experience</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3 class="sub-head"><svg class="ic"><use href="#i-ctrl"/></svg> Professional Experience</h3>
+          <ul class="timeline" id="expList"></ul>
+        </div>
+        <div>
+          <h3 class="sub-head"><svg class="ic"><use href="#i-scholar"/></svg> Education</h3>
+          <ul class="timeline" id="eduList"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="sec sec-contact" id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">12</span>
+        <h2>Contact</h2>
+        <p class="sec-sub">Open to collaboration, joint supervision and industrial projects</p>
+      </div>
+      <div class="contact-grid" id="contactGrid"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p id="footerName"></p>
+    <p class="muted" id="footerNote"></p>
+    <p class="muted small">
+      <a href="#home">Back to top</a> · Site is a static build — edit <code>assets/js/content.js</code> to update content.
+    </p>
+  </div>
+</footer>
+
+<!-- ============ Appearance panel ============ -->
+<div class="settings-panel" id="settingsPanel" aria-hidden="true">
+  <div class="settings-head">
+    <h3>Appearance</h3>
+    <button class="icon-btn" id="settingsClose" aria-label="Close panel"><svg class="ic"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="settings-body">
+    <div class="set-group">
+      <label>Theme</label>
+      <div class="seg" id="setTheme">
+        <button data-val="light">Light</button>
+        <button data-val="dark">Dark</button>
+        <button data-val="midnight">Midnight</button>
+      </div>
+    </div>
+    <div class="set-group">
+      <label>Accent colour</label>
+      <div class="swatches" id="setAccent"></div>
+    </div>
+    <div class="set-group">
+      <label>Hero background</label>
+      <div class="seg" id="setPattern">
+        <button data-val="glow">Glow</button>
+        <button data-val="grid">Grid</button>
+        <button data-val="plain">Plain</button>
+      </div>
+    </div>
+    <div class="set-group">
+      <label for="bgUrl">Background image URL</label>
+      <input type="text" id="bgUrl" placeholder="https://… (leave empty to clear)">
+      <div class="row">
+        <button class="btn tiny" id="bgApply">Apply URL</button>
+        <button class="btn tiny ghost" id="bgClear">Clear</button>
+      </div>
+      <label class="file-btn">
+        Upload local image
+        <input type="file" id="bgFile" accept="image/*" hidden>
+      </label>
+      <p class="hint">Stored in this browser only (localStorage). For a permanent change, edit the CSS variable in <code>style.css</code>.</p>
+    </div>
+    <div class="set-group">
+      <button class="btn tiny ghost block" id="setReset">Reset to default</button>
+    </div>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+
+<script src="assets/js/content.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
