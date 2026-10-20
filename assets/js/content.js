@@ -29,9 +29,9 @@ const SITE = {
     status: "online",
     maintenance: {
       title: "This site is temporarily offline",
-      titleCn: "网站维护中，暂未开放",
+      titleCn: "",
       note: "I am updating the research content. Please check back soon, or get in touch by email.",
-      noteCn: "正在更新科研内容，敬请期待。如需交流，欢迎邮件联系。",
+      noteCn: "",
       email: "zhihua.deng@ntu.edu.sg"
     }
   },
@@ -157,7 +157,6 @@ const SITE = {
   research: [
     {
       icon: "ctrl",
-      media: "assets/media/fig01-modelling-control.svg",
       title: "Fuel-Cell Modelling &amp; Control",
       desc: "Control-oriented and interpretable models of proton exchange membrane fuel cells — linear parameter-varying "
           + "models, NARMAX identification, data-driven reconstruction of the air-supply subsystem, and model predictive "
@@ -166,7 +165,6 @@ const SITE = {
     },
     {
       icon: "chip",
-      media: "assets/media/fig02-ai-diagnostics.svg",
       title: "AI for Diagnostics &amp; Lifetime Prediction",
       desc: "Machine-learning and neuro-fuzzy methods for degradation trend prediction and remaining useful life estimation, "
           + "including echo state networks, broad learning systems, ELM-autoencoders and optimiser-tuned hybrid models "
@@ -175,7 +173,6 @@ const SITE = {
     },
     {
       icon: "graph",
-      media: "assets/media/fig05-ml-for-devices.svg",
       title: "Machine Learning for Energy Devices",
       desc: "Data-driven design and lifetime prediction of solid oxide fuel cells, catalyst and materials screening, "
           + "and machine-learning workflows that connect laboratory testing with field data to compress development cycles.",
@@ -183,7 +180,6 @@ const SITE = {
     },
     {
       icon: "drop",
-      media: "assets/media/fig03-hydrogen-ammonia.svg",
       title: "Hydrogen &amp; Ammonia Value Chain",
       desc: "Ammonia cracking reactors coupled with SOFC waste heat, green ammonia synthesis modelling and optimisation, "
           + "catalytic pre-cracking for pure ammonia combustion, and methanol production from municipal solid waste "
@@ -192,7 +188,6 @@ const SITE = {
     },
     {
       icon: "bolt",
-      media: "assets/media/fig04-energy-management.svg",
       title: "Energy Management &amp; Optimal Control",
       desc: "Multi-frequency energy management for PEMFC–battery–supercapacitor hybrid UAVs with hydrogen economy and "
           + "lifetime awareness, approximate dynamic programming strategies, and economic MPC for fuel-cell vehicles.",
@@ -200,7 +195,6 @@ const SITE = {
     },
     {
       icon: "leaf",
-      media: "assets/media/fig06-low-carbon-process.svg",
       title: "Low-Carbon Processes &amp; Industrial Decarbonisation",
       desc: "Biomass gasification and combustion in industrial steam boilers, CO₂ methanation catalysts, and "
           + "thermodynamic system studies that turn waste streams and renewable electricity into drop-in fuels.",
@@ -223,42 +217,13 @@ const SITE = {
        ★ 加自己的照片/视频：复制下面任意一条改路径即可
      ------------------------------------------------------------------ */
   media: [
-    { type: "image", src: "assets/media/fig01-modelling-control.svg",
-      title: "Fuel-cell modelling &amp; control loop",
-      caption: "闭环控制框架：控制导向建模 → MPC 预测控制 → 执行器反馈，并叠加寿命感知。",
-      tag: "Modelling &amp; control" },
-    { type: "image", src: "assets/media/fig02-ai-diagnostics.svg",
-      title: "AI-driven diagnostics &amp; RUL estimation",
-      caption: "从运行数据到剩余寿命的机器学习流程，含长步长退化趋势预测。",
-      tag: "AI for diagnostics" },
-    { type: "image", src: "assets/media/fig03-hydrogen-ammonia.svg",
-      title: "Hydrogen &amp; ammonia value chain",
-      caption: "绿电制氢 → 合成氨 → 裂解 → SOFC 发电，以及废弃物制醇与 CO₂ 利用路线。",
-      tag: "Hydrogen &amp; ammonia" },
-    { type: "image", src: "assets/media/fig04-energy-management.svg",
-      title: "Multi-frequency energy management",
-      caption: "PEMFC–电池–超级电容混合无人机动力系统的多频段能量管理与寿命反馈。",
-      tag: "Energy management" },
-    { type: "image", src: "assets/media/fig05-ml-for-devices.svg",
-      title: "Machine learning for energy devices",
-      caption: "从设计空间到样机验证、再到寿命模型的 ML 迭代闭环。",
-      tag: "ML for devices" },
-    { type: "image", src: "assets/media/fig06-low-carbon-process.svg",
-      title: "Low-carbon processes &amp; decarbonisation",
-      caption: "生物质/城市垃圾、工业蒸汽锅炉、CO₂ 制甲烷与电制燃料三条低碳路线。",
-      tag: "Low-carbon processes" },
+    /* 当前为空：Figures & Media 板块会自动隐藏。
+       往这里添加你自己的图片 / 视频即可自动显示（见 README 二之二节）。
+       type 可选："image"（点击放大）/ "video"（本地 mp4 + poster）/ "embed"（YouTube / Bilibili）
 
-    /* ↓↓↓ 去掉注释并填上自己的文件，即可显示 ↓↓↓
-    { type: "video", src: "assets/media/demos/eri-ntu-lab.mp4",
-      poster: "assets/media/demos/eri-ntu-lab-cover.jpg",
-      title: "Lab tour: ERI@N fuel-cell test bench",
-      caption: "燃料电池测试台与数据采集系统。", tag: "Lab" },
-    { type: "embed", src: "https://www.youtube.com/embed/XXXXXXXXXXX",
-      title: "Invited talk at WHEC 2026",
-      caption: "第 25 届世界氢能大会主题报告。", tag: "Talks" },
-    { type: "image", src: "assets/media/lab/fuel-cell-bench.jpg",
-      title: "Fuel-cell test bench",
-      caption: "单电池测试台。", tag: "Lab" }, */
+    { type: "image", src: "assets/media/lab/your-photo.jpg",
+      title: "Your title", caption: "Short caption.", tag: "Lab" },
+    */ 
   ],
 
   /* ------------------------------------------------------------------
@@ -467,9 +432,13 @@ const SITE = {
            + "Intelligence and Robotics / Guangdong International Joint Research Center for Evolutionary Intelligence "
            + "and Robotics in Universities", when: "12/2022 – Present" }
     ],
-    /* 审稿记录：简历里未列出具体期刊，这里留空，随时往数组里加即可 */
-    reviewer: [],
-    reviewerEmpty: "Peer-review activity is recorded here — add journals and years to <code>service.reviewer</code> in content.js."
+    /* 同行评审：国际期刊 */
+    reviewer: [
+      { role: "Peer Reviewer",
+        journals: ["eTransportation", "Advanced Energy Materials", "Energy Conversion and Management",
+                   "Applied Energy", "Energy", "Renewable Energy"],
+        when: "Ongoing" }
+    ]
   },
 
   /* ------------------------------------------------------------------
@@ -491,9 +460,22 @@ const SITE = {
         每项：{ name, topic, period, note }
      ------------------------------------------------------------------ */
   students: {
-    phd: [], master: [], undergrad: [],
-    empty: "Supervision records are maintained here. Add entries for PhD, Master and undergraduate students in "
-         + "<code>students</code> in content.js."
+    phd: [
+      { name: "Chengguang Tong",
+        topic: "Joint Ph.D. programme — Wuhan University of Technology & Nanyang Technological University",
+        period: "" }
+    ],
+    master: [
+      { name: "Yunshu Duan",
+        topic: "M.Sc. student — School of Mechanical and Aerospace Engineering, NTU",
+        period: "" }
+    ],
+    undergrad: [
+      { name: "Wilson Wongosari",
+        topic: "Undergraduate student — School of Mechanical and Aerospace Engineering, NTU",
+        period: "" }
+    ],
+    empty: ""
   },
 
   /* ------------------------------------------------------------------
@@ -546,5 +528,5 @@ const SITE = {
     { icon: "globe", label: "Institute", value: "ERI@N, Nanyang Technological University", href: "https://www.ntu.edu.sg/eri" }
   ],
 
-  footerNote: "Energy systems modelling, control and AI · Built as a static site for long-term maintainability."
+  footerNote: "Energy systems modelling, control and artificial intelligence."
 };

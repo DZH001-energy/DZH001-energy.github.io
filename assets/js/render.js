@@ -41,7 +41,8 @@
   /* ------------------------------------------------------------------ nav */
   function nav() {
     const ul = $("#navList");
-    (SITE.profile.nav || []).forEach(item => {
+    const hasMedia = (SITE.media && SITE.media.length) > 0;
+    (SITE.profile.nav || []).filter(item => !(item.href === "#media" && !hasMedia)).forEach(item => {
       const li = el("li");
       li.innerHTML = `<a href="${esc(item.href)}" data-nav="${esc(item.href)}">${esc(item.label)}</a>`;
       ul.appendChild(li);
@@ -206,7 +207,7 @@
           ${p.note ? `<div class="entry-note">${rich(p.note)}</div>` : ""}
         </div>
       </li>`).join("")
-      : `<div class="empty">No patents recorded yet.</div>`;
+      : "";
   }
 
   /* ---------------------------------------------------------------- talks */
@@ -219,7 +220,7 @@
         <div class="tl-where">${rich(t.where)}</div>
         ${t.desc ? `<div class="tl-desc">${rich(t.desc)}</div>` : ""}
       </li>`).join("")
-      : `<div class="empty">No presentations recorded yet.</div>`;
+      : "";
   }
 
   /* ------------------------------------------------------------- projects */
@@ -237,23 +238,24 @@
           ${p.role ? `<span>${esc(p.role)}</span>` : ""}
         </div>
       </article>`).join("")
-      : `<div class="empty">No projects recorded yet.</div>`;
+      : "";
   }
 
   /* -------------------------------------------------------------- service */
   function service() {
     const s = SITE.service || {};
-    const col = (title, iconName, arr, emptyMsg) => {
+    const col = (title, iconName, arr) => {
       const body = (arr && arr.length)
-        ? `<ul>${arr.map(i => `<li><span class="svc-role">${rich(i.role)}</span> — <span class="svc-org">${rich(i.org)}</span>
+        ? `<ul>${arr.map(i => `<li><span class="svc-role">${rich(i.role)}</span>${i.org ? ` — <span class="svc-org">${rich(i.org)}</span>` : ""}
+             ${i.journals ? `<div class="svc-journals">${i.journals.map(j => `<span class="svc-chip">${rich(j)}</span>`).join("")}</div>` : ""}
              <span class="svc-when">${esc(i.when || "")}</span></li>`).join("")}</ul>`
-        : `<div class="empty">${rich(emptyMsg || "Nothing recorded yet.")}</div>`;
+        : "";
       return `<div class="svc-col reveal"><h3>${icon(iconName)} ${title}</h3>${body}</div>`;
     };
     $("#serviceGrid").innerHTML =
-      col("Editorial Roles", "doc", s.editorial, "Add editorial appointments to <code>service.editorial</code>.") +
-      col("Committees &amp; Youth Boards", "globe", s.committee, "Add committee memberships to <code>service.committee</code>.") +
-      col("Peer Review", "chip", s.reviewer, s.reviewerEmpty);
+      col("Editorial Roles", "doc", s.editorial) +
+      col("Committees &amp; Youth Boards", "globe", s.committee) +
+      col("Peer Review", "chip", s.reviewer);
   }
 
   /* ------------------------------------------------------------- teaching */
@@ -266,7 +268,7 @@
         <div class="tl-where">${rich(c.org)}</div>
         ${(c.points && c.points.length) ? `<ul>${c.points.map(p => `<li>${rich(p)}</li>`).join("")}</ul>` : ""}
       </div>`).join("")
-      : `<div class="empty">No teaching records yet.</div>`;
+      : "";
 
     const st = SITE.students || {};
     const col = (title, arr) => `
@@ -274,7 +276,7 @@
         <h4>${title} <span class="n">${(arr || []).length}</span></h4>
         ${(arr && arr.length)
           ? `<ul>${arr.map(s => `<li>${rich(s.name)}${s.topic ? `<em>${rich(s.topic)}</em>` : ""}${s.period ? `<em>${esc(s.period)}</em>` : ""}${s.note ? `<em>${rich(s.note)}</em>` : ""}</li>`).join("")}</ul>`
-          : `<div class="empty" style="border:0;padding:8px 0;background:none">${rich(st.empty || "Add students here.")}</div>`}
+          : ""}
       </div>`;
     $("#studentGrid").innerHTML =
       col("PhD Students", st.phd) + col("Master Students", st.master) + col("Undergraduate Students", st.undergrad);
@@ -287,7 +289,7 @@
       <div class="award reveal"><span class="dot"></span>
         <span class="txt">${rich(x.text)}<span class="when">${esc(x.when || "")}</span></span>
       </div>`).join("")
-      : `<div class="empty">No awards recorded yet.</div>`;
+      : "";
   }
 
   /* ----------------------------------------------------------- background */
@@ -299,8 +301,8 @@
         <div class="tl-where">${rich(i.where)}</div>
         ${i.desc ? `<div class="tl-desc">${rich(i.desc)}</div>` : ""}
       </li>`;
-    $("#expList").innerHTML = (SITE.experience || []).map(line).join("") || `<div class="empty">Add experience entries.</div>`;
-    $("#eduList").innerHTML  = (SITE.education  || []).map(line).join("") || `<div class="empty">Add education entries.</div>`;
+    $("#expList").innerHTML = (SITE.experience || []).map(line).join("") || "";
+    $("#eduList").innerHTML  = (SITE.education  || []).map(line).join("") || "";
   }
 
   /* -------------------------------------------------------------- contact */
@@ -326,10 +328,12 @@
       const n = items.length;
       sub.innerHTML = n
         ? `${n} item${n === 1 ? "" : "s"} — research schematics, photographs and videos. Click any item to enlarge or play.`
-        : "Figures, photographs and videos will be added here.";
+        : "";
     }
     if (!items.length) {
-      grid.innerHTML = `<div class="empty">No media yet — add entries to <code>media</code> in content.js.</div>`;
+      const sec = $("#media");
+      if (sec) sec.style.display = "none";     /* 暂无素材：该板块整体留白隐藏 */
+      grid.innerHTML = "";
       return;
     }
     grid.innerHTML = items.map((m, i) => {
@@ -361,8 +365,8 @@
     if (!box) return false;
     if (st !== "maintenance") { box.classList.remove("on"); return false; }
     const m = (SITE.site && SITE.site.maintenance) || {};
-    $("#maintTitle").textContent = m.titleCn || m.title || "Website temporarily offline";
-    $("#maintNote").textContent = m.noteCn || m.note || "";
+    $("#maintTitle").textContent = m.title || "This site is temporarily offline";
+    $("#maintNote").textContent = m.note || "";
     const mail = $("#maintMail");
     if (mail) {
       mail.textContent = m.email ? "Contact me by email" : "Contact";
@@ -382,6 +386,8 @@
     patents(); talks(); projects(); service(); teaching(); awards(); background(); contact();
     $("#footerName").innerHTML = `<strong>${esc(SITE.profile.name)}</strong> · ${rich(SITE.profile.title)} · ${rich(SITE.profile.affiliation)}`;
     $("#footerNote").textContent = SITE.footerNote || "";
+    const cp = $("#footerCopy");
+    if (cp) cp.textContent = `\u00a9 ${new Date().getFullYear()} ${SITE.profile.shortName || SITE.profile.name}`;
   }
 
   window.Render = { publications, boot };

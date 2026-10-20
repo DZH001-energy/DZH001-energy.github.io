@@ -688,3 +688,15 @@ body.is-maintenance{overflow:hidden}
   .media-grid{grid-template-columns:1fr}
   .maintenance-card{padding:36px 24px}
 }
+
+/* 审稿期刊标签 */
+.svc-journals{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 4px}
+.svc-chip{
+  font-size:12.4px;padding:3px 10px;border-radius:100px;
+  background:color-mix(in srgb,var(--accent) 13%, transparent);
+  border:1px solid color-mix(in srgb,var(--accent) 30%, transparent);
+  color:color-mix(in srgb,var(--accent) 78%, var(--ink));
+  font-weight:500;
+}
+.svc-col ul li{margin-bottom:12px}
+.svc-col ul li:last-child{margin-bottom:0}
