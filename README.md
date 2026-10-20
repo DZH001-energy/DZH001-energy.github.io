@@ -1,5 +1,8 @@
 # Dr. Zhihua Deng — 个人学术主页
 
+🌐 **线上地址：https://dzh001-energy.github.io/**
+📦 GitHub 仓库：https://github.com/DZH001-energy/DZH001-energy.github.io
+
 一个**零依赖、纯静态**的个人科研网站。所有内容集中在一个文件里编辑，改完上传即全球生效。
 
 ```
@@ -81,6 +84,17 @@ website/
 改 `style.css` 顶部 `:root` 里的变量即可。
 
 ## 三、发布 / 更新 / 撤销 完整操作手册
+
+> ✅ **已上线**：仓库 `DZH001-energy/DZH001-energy.github.io`（Public），Pages 状态 `built`，
+> 地址 **https://dzh001-energy.github.io/** —— 全球任意电脑、任意网络（含中国大陆）均可访问。
+>
+> 三个已处理的关键配置：
+> 1. **提交身份用 GitHub noreply**（`179661622+DZH001-energy@users.noreply.github.com`）——
+>    否则会触发 `GH007 私有邮箱保护` 被拒绝推送。脚本已自动设置。
+> 2. **git 路径自动探测**——本机没有系统级 Git for Windows，脚本会自动找到
+>    WorkBuddy 自带的 PortableGit（`~/.workbuddy/binaries/PortableGit/*/cmd/git.exe`）。
+> 3. **令牌走本机文件 + 剪贴板双通道**，`askpass` 助手复制到纯 ASCII 临时目录执行
+>    （站点路径含中文，直接传给 git 拉起的子进程会乱码）。
 
 站点是**纯静态、零外部依赖**（系统字体栈 + 内联 SVG，不引用 Google Fonts 或任何 CDN），
 因此托管到任意静态平台后，**全球任何一台电脑、任何网络环境（含中国大陆）都能正常打开**。
