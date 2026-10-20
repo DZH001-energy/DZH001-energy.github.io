@@ -468,7 +468,7 @@ const SITE = {
     master: [
       { name: "Yunshu Duan",        
         topic: "M.Sc. student — School of Mechanical and Aerospace Engineering, NTU",
-        period: "202609-Now" }
+        period: "202609-Now" },
       { name:  "Shijie Gao",
         topic: "M.Sc. student — Wuhan University of Technology",
         period: "202209-202504" }
