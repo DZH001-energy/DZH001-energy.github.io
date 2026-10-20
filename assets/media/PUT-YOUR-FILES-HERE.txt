@@ -1,0 +1,30 @@
+========================================================
+  把你的照片 / 图片 / 视频放在这里
+========================================================
+
+这个目录下的所有文件都可以在网页上展示。
+
+推荐结构：
+  assets/media/
+  ├── fig01-modelling-control.svg   ← 现有的 6 张示意图（请保留）
+  ├── ...
+  ├── lab/          实验照片（测试台、电堆、实验设备…）
+  ├── photos/       活动照片、会议合影、个人照片
+  └── demos/        视频（mp4）与封面图
+
+放好文件后，打开 assets/js/content.js，在 media 数组里加一条：
+
+  { type: "image", src: "assets/media/lab/你的文件名.jpg",
+    title: "标题", caption: "说明文字。", tag: "Lab" },
+
+  { type: "video", src: "assets/media/demos/你的文件名.mp4",
+    poster: "assets/media/demos/封面.jpg",
+    title: "标题", caption: "说明文字。", tag: "Demo" },
+
+  { type: "embed", src: "https://www.youtube.com/embed/XXXX",
+    title: "标题", caption: "说明文字。", tag: "Talk" },
+
+然后双击 publish.bat 发布。
+
+体积建议：图片 < 500 KB，视频 < 15 MB（GitHub Pages 单文件上限 100 MB）。
+更大的视频请放 YouTube / Bilibili，用 type: "embed" 内嵌。

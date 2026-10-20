@@ -83,6 +83,84 @@ website/
 设置保存在浏览器本地（localStorage）。若想让**所有访客**默认看到某种配色，
 改 `style.css` 顶部 `:root` 里的变量即可。
 
+
+## 二之二、📷 图片 / 视频 怎么加进来
+
+站点有两个位置可以放图：**研究卡片缩略图** 和 **Figures & Media 图集**。
+
+### 1. 文件放哪
+
+```
+assets/media/                 ← 你的所有图片和视频
+├── fig01-modelling-control.svg   （现成的 6 张示意图，先别删）
+├── lab/                      ← 实验照片
+├── photos/                   ← 活动/合影
+└── demos/                    ← 视频
+```
+
+### 2. 三种条目写法（都改 `assets/js/content.js` 的 `media` 数组）
+
+```js
+// ① 普通图片：点击放大灯箱
+{ type: "image", src: "assets/media/lab/fuel-cell-bench.jpg",
+  title: "Fuel-cell test bench", caption: "单电池测试台。", tag: "Lab" },
+
+// ② 本地视频：显示封面，点击在灯箱里播放
+{ type: "video", src: "assets/media/demos/lab-tour.mp4",
+  poster: "assets/media/demos/lab-tour-cover.jpg",
+  title: "Lab tour", caption: "实验室介绍视频。", tag: "Lab" },
+
+// ③ 外部视频（YouTube / Bilibili）：内嵌播放
+{ type: "embed", src: "https://www.youtube.com/embed/XXXXXXXXXXX",
+  title: "Invited talk at WHEC 2026", caption: "主题报告。", tag: "Talks" },
+```
+
+> Bilibili 也可以内嵌，把 `src` 换成 `https://player.bilibili.com/player.html?bvid=BVxxxx&page=1&high_quality=1&danmaku=0`。
+
+### 3. 给研究方向配图
+
+`research` 数组里每项加一行 `media:`，卡片顶部就会显示这张图：
+
+```js
+{ icon: "ctrl", title: "Fuel-Celling Modelling & Control",
+  media: "assets/media/fig01-modelling-control.svg",   ← 加这一行
+  desc: "...", keywords: [...] }
+```
+
+### 4. 尺寸与体积建议
+
+| 类型 | 建议 | 原因 |
+|---|---|---|
+| 图片 | 1600 px 宽以内，JPG/PNG < 500 KB | 首页加载更快 |
+| 视频 | mp4 (H.264) < 15 MB | GitHub Pages 单文件上限 100 MB，仓库也不宜过大 |
+| 大视频 | 放 YouTube / Bilibili，用 `type: "embed"` | 不占仓库空间，全球加载更快 |
+
+> 💡 批量压缩：`squoosh.app`（图片）、`handbrake.fr`（视频）都是免费好用的。
+> 想让视频自动首帧封面，可用 `poster` 指向一张截图。
+
+---
+
+## 二之三、🔒 关闭网站发布（维护模式）
+
+**方式 A · 全局关闭（对所有访客生效）**
+
+1. 打开 `assets/js/content.js`，找到最上面的 `site:` 块
+2. 把 `status: "online"` 改成 `status: "maintenance"`
+3. 双击 `publish.bat` 发布 —— 约 1–2 分钟后全球访客看到的都是维护页
+4. 想恢复，改回 `"online"` 再发布一次
+
+维护页会显示"网站维护中，暂未开放"+ 你的邮箱，访客仍能给你发邮件。
+
+**方式 B · 本机预览**
+
+右上角齿轮面板 → **Site status** → 选 `Maintenance`，只影响这台电脑，双击可来回切换。
+设置面板里还有提示告诉你如何做全局关闭。
+
+**方式 C · 彻底下线（极端情况）**
+
+到 GitHub 仓库 **Settings → Pages → Source** 改为 `None`，或把仓库设为 Private。
+这样网址会直接失效。恢复时把 Source 改回 `main` 分支即可。
+
 ## 三、发布 / 更新 / 撤销 完整操作手册
 
 > ✅ **已上线**：仓库 `DZH001-energy/DZH001-energy.github.io`（Public），Pages 状态 `built`，

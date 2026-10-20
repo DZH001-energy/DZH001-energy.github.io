@@ -563,3 +563,128 @@ code{font-family:var(--mono);font-size:.88em;background:var(--bg-sunk);padding:1
   .hero *{color:#000!important}
   .card,.panel,.award{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
 }
+
+/* ============================ MEDIA / FIGURES ============================ */
+.media-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px;
+}
+.media-item{
+  margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  overflow:hidden;box-shadow:var(--shadow);cursor:pointer;
+  transition:transform .28s cubic-bezier(.2,.7,.3,1),box-shadow .28s,border-color .28s;
+}
+.media-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--accent) 45%, var(--line))}
+.media-thumb{
+  position:relative;aspect-ratio:16/9;overflow:hidden;
+  background:linear-gradient(150deg,var(--bg-sunk),var(--surface-2));
+  border-bottom:1px solid var(--line-2);
+}
+.media-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.media-item:hover .media-thumb img{transform:scale(1.04)}
+.media-nothumb{
+  width:100%;height:100%;display:grid;place-items:center;color:var(--accent);opacity:.6;
+}
+.media-zoom{
+  position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:8px;
+  display:grid;place-items:center;color:#fff;opacity:0;transform:translateY(-4px);
+  background:color-mix(in srgb,var(--navy-900) 62%, transparent);
+  border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px);
+  transition:.26s;
+}
+.media-zoom .ic{width:14px;height:14px}
+.media-item:hover .media-zoom{opacity:1;transform:none}
+.media-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--navy-900) 62%, transparent);
+  border:1.5px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);
+  color:var(--accent);box-shadow:0 8px 22px -8px rgba(0,0,0,.6);
+  transition:.26s;
+}
+.media-item:hover .media-play{transform:translate(-50%,-50%) scale(1.08)}
+.media-cap{padding:16px 18px 18px}
+.media-tag{
+  display:inline-block;font-size:11.4px;font-weight:600;letter-spacing:.05em;
+  padding:3px 9px;border-radius:6px;margin-bottom:9px;
+  background:color-mix(in srgb,var(--accent) 14%, transparent);
+  color:color-mix(in srgb,var(--accent) 80%, var(--ink));
+  border:1px solid color-mix(in srgb,var(--accent) 28%, transparent);
+}
+.media-cap strong{display:block;font-size:15.6px;line-height:1.42;color:var(--ink)}
+.media-cap p{margin-top:6px;font-size:13.6px;line-height:1.6;color:var(--muted)}
+
+/* 研究卡片缩略图 */
+.card.has-media{padding-top:0;overflow:hidden}
+.card.has-media .card-thumb{
+  margin:0 -26px 20px;overflow:hidden;background:var(--bg-sunk);
+  border-bottom:1px solid var(--line-2);
+}
+.card.has-media .card-thumb img{
+  width:100%;aspect-ratio:16/9;object-fit:cover;display:block;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1);
+}
+.card.has-media:hover .card-thumb img{transform:scale(1.05)}
+.card.has-media .card-ico{margin-top:20px}
+
+/* ================================ LIGHTBOX ================================ */
+.lightbox{
+  position:fixed;inset:0;z-index:100;display:none;place-items:center;
+  background:color-mix(in srgb,var(--navy-900) 92%, transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  padding:40px 24px;
+}
+.lightbox.on{display:grid;animation:fadeIn .22s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.lightbox-inner{margin:0;max-width:min(1180px,94vw);width:100%;display:flex;flex-direction:column;gap:16px}
+.lightbox-stage{
+  border-radius:var(--r-lg);overflow:hidden;background:var(--navy-900);
+  display:flex;align-items:center;justify-content:center;max-height:74vh;
+  border:1px solid rgba(255,255,255,.1);
+}
+.lightbox-stage img{max-width:100%;max-height:74vh;object-fit:contain;display:block}
+.lightbox-stage video{width:100%;max-height:74vh;display:block;background:#000}
+.lightbox-stage iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.lightbox figcaption{color:#DCE6F2;font-size:14.5px;line-height:1.6;text-align:center}
+.lightbox figcaption strong{display:block;font-size:16px;color:#fff;margin-top:4px}
+.lightbox figcaption p{margin-top:5px;color:#A9BDD6}
+.lightbox figcaption .media-tag{
+  background:color-mix(in srgb,var(--accent) 20%, transparent);color:#9FF0E5;
+  border-color:color-mix(in srgb,var(--accent) 40%, transparent);
+}
+.lightbox-close{
+  position:fixed;top:20px;right:20px;width:40px;height:40px;border-radius:11px;
+  display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);transition:.2s;z-index:2;
+}
+.lightbox-close:hover{background:rgba(255,255,255,.2);transform:rotate(90deg)}
+
+/* ============================== MAINTENANCE ============================== */
+.maintenance{
+  position:fixed;inset:0;z-index:120;display:none;place-items:center;
+  background:linear-gradient(155deg,var(--navy-900) 0%,var(--navy-700) 100%);
+  padding:30px;
+}
+.maintenance.on{display:grid}
+body.is-maintenance{overflow:hidden}
+.maintenance-card{
+  max-width:560px;text-align:center;color:#EAF1FA;
+  background:color-mix(in srgb,#fff 5%, transparent);
+  border:1px solid rgba(255,255,255,.12);border-radius:var(--r-xl);
+  padding:48px 40px;box-shadow:var(--shadow-lg);
+  backdrop-filter:blur(10px);
+}
+.maintenance-mark{
+  width:58px;height:58px;border-radius:15px;margin:0 auto 22px;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--navy-700),var(--navy-900));
+  color:var(--accent);font-weight:700;font-size:19px;letter-spacing:.02em;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.09);
+}
+.maintenance-card h1{font-size:clamp(23px,3vw,30px);margin-bottom:12px;letter-spacing:-.02em}
+.maintenance-card p{color:#A9BDD6;font-size:15.2px;line-height:1.7}
+.maintenance-card .btn{margin-top:24px}
+.maintenance-foot{margin-top:26px;font-size:12.5px;color:#7E93AC;letter-spacing:.02em}
+
+@media (max-width:720px){
+  .media-grid{grid-template-columns:1fr}
+  .maintenance-card{padding:36px 24px}
+}

@@ -8,6 +8,8 @@
   const $  = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const KEY = "zdSite.prefs";
+  const esc = s => String(s == null ? "" : s)
+    .replace(/&(?!(amp|lt|gt|quot|#\d+);)/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
   const ACCENTS = [
     { name: "Hydrogen teal", c: "#14C0AE", on: "#04231F" },
@@ -18,7 +20,7 @@
   ];
 
   const prefs = Object.assign(
-    { theme: "light", accent: ACCENTS[0].c, accentOn: ACCENTS[0].on, pattern: "glow", bgImage: "" },
+    { theme: "light", accent: ACCENTS[0].c, accentOn: ACCENTS[0].on, pattern: "glow", bgImage: "", status: "online" },
     JSON.parse(localStorage.getItem(KEY) || "{}")
   );
 
@@ -168,9 +170,98 @@
       r.readAsDataURL(f);
     });
     $("#setReset").addEventListener("click", () => {
-      Object.assign(prefs, { theme: "light", accent: ACCENTS[0].c, accentOn: ACCENTS[0].on, pattern: "glow", bgImage: "" });
+      Object.assign(prefs, { theme: "light", accent: ACCENTS[0].c, accentOn: ACCENTS[0].on, pattern: "glow", bgImage: "", status: "online" });
       apply();
     });
+  }
+
+
+  /* -------------------------------------------------------------- lightbox */
+  function initLightbox() {
+    const box = $("#lightbox"), stage = $("#lightboxStage"), cap = $("#lightboxCaption");
+    if (!box) return;
+
+    const openBox = (item) => {
+      if (!item) return;
+      stage.innerHTML = "";
+      if (item.type === "video") {
+        stage.innerHTML = `<video controls autoplay playsinline poster="${esc(item.poster || "")}">
+            <source src="${esc(item.src)}">Your browser does not support the video tag.</video>`;
+      } else if (item.type === "embed") {
+        stage.innerHTML = `<iframe src="${esc(item.src)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+      } else {
+        stage.innerHTML = `<img src="${esc(item.src)}" alt="${esc(item.title || "")}">`;
+      }
+      cap.innerHTML = `${item.tag ? `<span class="media-tag">${item.tag}</span>` : ""}<strong>${item.title || ""}</strong>${item.caption ? `<p>${item.caption}</p>` : ""}`;
+      box.classList.add("on");
+      box.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+    const closeBox = () => {
+      box.classList.remove("on");
+      box.setAttribute("aria-hidden", "true");
+      stage.innerHTML = "";           /* 停止视频播放 */
+      document.body.style.overflow = "";
+    };
+
+    const grid = $("#mediaGrid");
+    if (grid) {
+      grid.addEventListener("click", e => {
+        const fig = e.target.closest(".media-item");
+        if (!fig) return;
+        const item = (SITE.media || [])[Number(fig.dataset.i)];
+        if (item) openBox(item);
+      });
+    }
+    $("#lightboxClose").addEventListener("click", closeBox);
+    box.addEventListener("click", e => { if (e.target === box) closeBox(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeBox(); });
+  }
+
+  /* ------------------------------------------- 站点状态（本机预览用开关） */
+  function initStatus() {
+    const seg = $("#setStatus");
+    if (!seg) return;
+    const applyLocal = (val) => {
+      prefs.status = val;
+      localStorage.setItem(KEY, JSON.stringify(prefs));
+      const box = $("#maintenance");
+      if (!box) return;
+      if (val === "maintenance") {
+        const m = (SITE.site && SITE.site.maintenance) || {};
+        $("#maintTitle").textContent = m.titleCn || m.title || "";
+        $("#maintNote").textContent = m.noteCn || m.note || "";
+        const mail = $("#maintMail");
+        if (mail) { mail.textContent = m.email ? "Contact me by email" : "Contact"; mail.href = m.email ? "mailto:" + m.email : "#"; }
+        $("#maintFoot").textContent = m.title || "";
+        box.classList.add("on");
+        document.body.classList.add("is-maintenance");
+      } else {
+        box.classList.remove("on");
+        document.body.classList.remove("is-maintenance");
+      }
+      $$("#setStatus button").forEach(b => b.classList.toggle("on", b.dataset.val === val));
+    };
+
+    seg.addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      applyLocal(b.dataset.val);
+    });
+    seg.addEventListener("dblclick", () => {
+      const cur = prefs.status === "maintenance" ? "online" : "maintenance";
+      applyLocal(cur);
+      alert(cur === "maintenance"
+        ? "本机已切换到维护模式（仅此电脑有效）。\n\n要让全球访客都看到维护页，请把 content.js 里的 site.status 改成 \"maintenance\"，再双击 publish.bat 发布。"
+        : "本机已恢复在线显示。");
+    });
+
+    /* 初始：若内容本身就是维护模式，直接生效 */
+    const contentStatus = (SITE.site && SITE.site.status) || "online";
+    if (contentStatus === "maintenance") applyLocal("maintenance");
+    else { prefs.status = prefs.status || "online"; syncStatusUI(); }
+  }
+  function syncStatusUI() {
+    $$("#setStatus button").forEach(b => b.classList.toggle("on", b.dataset.val === (prefs.status || "online")));
   }
 
   /* ------------------------------------------------------------------ boot */
@@ -179,6 +270,8 @@
     initNav();
     initFilters();
     initSettings();
+    initLightbox();
+    initStatus();
     requestAnimationFrame(initReveal);
   });
 })();

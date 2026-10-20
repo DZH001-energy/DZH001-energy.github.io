@@ -119,7 +119,8 @@
   /* ------------------------------------------------------------- research */
   function research() {
     $("#researchGrid").innerHTML = (SITE.research || []).map(r => `
-      <article class="card reveal">
+      <article class="card reveal ${r.media ? "has-media" : ""}">
+        ${r.media ? `<div class="card-thumb"><img src="${esc(r.media)}" alt="${esc(String(r.title).replace(/&amp;/g, "and"))}" loading="lazy"></div>` : ""}
         <div class="card-ico">${icon(r.icon || "chip")}</div>
         <h3>${rich(r.title)}</h3>
         <p>${rich(r.desc)}</p>
@@ -315,9 +316,68 @@
       </div>`).join("");
   }
 
+
+  /* --------------------------------------------------------------- media */
+  function media() {
+    const items = SITE.media || [];
+    const grid = $("#mediaGrid");
+    const sub = $("#mediaSub");
+    if (sub) {
+      const n = items.length;
+      sub.innerHTML = n
+        ? `${n} item${n === 1 ? "" : "s"} — research schematics, photographs and videos. Click any item to enlarge or play.`
+        : "Figures, photographs and videos will be added here.";
+    }
+    if (!items.length) {
+      grid.innerHTML = `<div class="empty">No media yet — add entries to <code>media</code> in content.js.</div>`;
+      return;
+    }
+    grid.innerHTML = items.map((m, i) => {
+      const isPlay = m.type === "video" || m.type === "embed";
+      const poster = m.type === "video" ? m.poster : (m.type === "embed" ? m.poster : m.src);
+      const thumb = poster
+        ? `<img src="${esc(poster)}" alt="${esc(m.title || "")}" loading="lazy">`
+        : `<div class="media-nothumb">${icon("bolt")}</div>`;
+      return `
+        <figure class="media-item reveal ${isPlay ? "is-play" : ""}" data-i="${i}" data-type="${esc(m.type || "image")}">
+          <div class="media-thumb">
+            ${thumb}
+            ${isPlay ? `<span class="media-play">${icon("bolt")}</span>` : ""}
+            <span class="media-zoom">${icon("link")}</span>
+          </div>
+          <figcaption class="media-cap">
+            ${m.tag ? `<span class="media-tag">${rich(m.tag)}</span>` : ""}
+            <strong>${rich(m.title || "")}</strong>
+            ${m.caption ? `<p>${rich(m.caption)}</p>` : ""}
+          </figcaption>
+        </figure>`;
+    }).join("");
+  }
+
+  /* ---------------------------------------------------------- maintenance */
+  function maintenance() {
+    const st = (SITE.site && SITE.site.status) || "online";
+    const box = $("#maintenance");
+    if (!box) return false;
+    if (st !== "maintenance") { box.classList.remove("on"); return false; }
+    const m = (SITE.site && SITE.site.maintenance) || {};
+    $("#maintTitle").textContent = m.titleCn || m.title || "Website temporarily offline";
+    $("#maintNote").textContent = m.noteCn || m.note || "";
+    const mail = $("#maintMail");
+    if (mail) {
+      mail.textContent = m.email ? "Contact me by email" : "Contact";
+      mail.href = m.email ? "mailto:" + m.email : "#";
+    }
+    $("#maintFoot").textContent = m.title || "";
+    box.classList.add("on");
+    document.body.classList.add("is-maintenance");
+    return true;
+  }
+
   /* ---------------------------------------------------------------- boot */
   function boot() {
-    nav(); hero(); about(); news(); research();
+    nav(); hero(); about(); news(); research(); media();
+    maintenance();
     publications({ type: "all", year: "all", q: "" });
     patents(); talks(); projects(); service(); teaching(); awards(); background(); contact();
     $("#footerName").innerHTML = `<strong>${esc(SITE.profile.name)}</strong> · ${rich(SITE.profile.title)} · ${rich(SITE.profile.affiliation)}`;

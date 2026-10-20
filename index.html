@@ -151,11 +151,23 @@
     </div>
   </section>
 
+  <!-- ============ Media / Figures ============ -->
+  <section class="sec sec-alt" id="media">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h2>Figures &amp; Media</h2>
+        <p class="sec-sub" id="mediaSub">Research schematics, photographs and videos — click any figure to enlarge</p>
+      </div>
+      <div class="media-grid" id="mediaGrid"></div>
+    </div>
+  </section>
+
   <!-- ============ Publications ============ -->
   <section class="sec sec-alt" id="publications">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">04</span>
+        <span class="sec-num">05</span>
         <h2>Publications</h2>
         <p class="sec-sub" id="pubCount"></p>
       </div>
@@ -178,7 +190,7 @@
   <section class="sec" id="patents">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">05</span>
+        <span class="sec-num">06</span>
         <h2>Patents</h2>
         <p class="sec-sub">Granted patents and technology transfer</p>
       </div>
@@ -190,7 +202,7 @@
   <section class="sec sec-alt" id="talks">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">06</span>
+        <span class="sec-num">07</span>
         <h2>Conference Presentations</h2>
         <p class="sec-sub">Invited, thematic and contributed talks</p>
       </div>
@@ -202,7 +214,7 @@
   <section class="sec" id="projects">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">07</span>
+        <span class="sec-num">08</span>
         <h2>Sponsored Research Projects</h2>
         <p class="sec-sub">Grants, funders and roles</p>
       </div>
@@ -214,7 +226,7 @@
   <section class="sec sec-alt" id="service">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">08</span>
+        <span class="sec-num">09</span>
         <h2>Academic Service</h2>
         <p class="sec-sub">Editorial roles, committees and peer review</p>
       </div>
@@ -226,7 +238,7 @@
   <section class="sec" id="teaching">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">09</span>
+        <span class="sec-num">10</span>
         <h2>Teaching &amp; Supervision</h2>
         <p class="sec-sub">Executive education, lecturing and student mentoring</p>
       </div>
@@ -240,7 +252,7 @@
   <section class="sec sec-alt" id="awards">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">10</span>
+        <span class="sec-num">11</span>
         <h2>Honors &amp; Awards</h2>
         <p class="sec-sub">Scholarships, dissertation and competition awards</p>
       </div>
@@ -252,7 +264,7 @@
   <section class="sec" id="background">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">11</span>
+        <span class="sec-num">12</span>
         <h2>Background</h2>
         <p class="sec-sub">Academic and professional experience</p>
       </div>
@@ -273,7 +285,7 @@
   <section class="sec sec-contact" id="contact">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-num">12</span>
+        <span class="sec-num">13</span>
         <h2>Contact</h2>
         <p class="sec-sub">Open to collaboration, joint supervision and industrial projects</p>
       </div>
@@ -307,6 +319,14 @@
         <button data-val="dark">Dark</button>
         <button data-val="midnight">Midnight</button>
       </div>
+    </div>
+    <div class="set-group">
+      <label>Site status</label>
+      <div class="seg" id="setStatus">
+        <button data-val="online">Online</button>
+        <button data-val="maintenance">Maintenance</button>
+      </div>
+      <p class="hint">本机预览开关。要让全球访客都看到维护页，请把 <code>content.js</code> 里的 <code>site.status</code> 改成 <code>"maintenance"</code>，再双击 <b>publish.bat</b> 发布；改回 <code>"online"</code> 即恢复。</p>
     </div>
     <div class="set-group">
       <label>Accent colour</label>
@@ -343,5 +363,26 @@
 <script src="assets/js/content.js"></script>
 <script src="assets/js/render.js"></script>
 <script src="assets/js/main.js"></script>
+
+<!-- ============ Lightbox ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+  <figure class="lightbox-inner">
+    <div class="lightbox-stage" id="lightboxStage"></div>
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+</div>
+
+<!-- ============ Maintenance page ============ -->
+<div class="maintenance" id="maintenance" aria-hidden="true">
+  <div class="maintenance-card">
+    <div class="maintenance-mark">ZD</div>
+    <h1 id="maintTitle">Website temporarily offline</h1>
+    <p id="maintNote"></p>
+    <a class="btn btn-primary" id="maintMail" href="#">Contact me</a>
+    <p class="maintenance-foot" id="maintFoot"></p>
+  </div>
+</div>
+
 </body>
 </html>
