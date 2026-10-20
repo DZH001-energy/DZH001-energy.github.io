@@ -466,10 +466,13 @@ const SITE = {
         period: "" }
     ],
     master: [
-      { name: "Yunshu Duan",
+      { name: "Yunshu Duan", “Shijie Gao”
         topic: "M.Sc. student — School of Mechanical and Aerospace Engineering, NTU",
         period: "" }
-    ],
+ { name:  “Shijie Gao”
+        topic: "M.Sc. student — Wuhan University of Technology",
+        period: "" }
+   ],
     undergrad: [
       { name: "Wilson Wongosari",
         topic: "Undergraduate student — School of Mechanical and Aerospace Engineering, NTU",
