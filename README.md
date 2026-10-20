@@ -92,7 +92,6 @@ website/
 
 ```
 assets/media/                 ← 你的所有图片和视频
-├── fig01-modelling-control.svg   （现成的 6 张示意图，先别删）
 ├── lab/                      ← 实验照片
 ├── photos/                   ← 活动/合影
 └── demos/                    ← 视频
