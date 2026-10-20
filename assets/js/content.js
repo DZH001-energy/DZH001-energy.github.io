@@ -463,20 +463,20 @@ const SITE = {
     phd: [
       { name: "Chengguang Tong",
         topic: "Joint Ph.D. programme — Wuhan University of Technology & Nanyang Technological University",
-        period: "" }
+        period: "202401-202502" }
     ],
     master: [
-      { name: "Yunshu Duan", “Shijie Gao”
+      { name: "Yunshu Duan",        
         topic: "M.Sc. student — School of Mechanical and Aerospace Engineering, NTU",
-        period: "" }
- { name:  “Shijie Gao”
+        period: "202609-Now" }
+     { name:  "Shijie Gao",
         topic: "M.Sc. student — Wuhan University of Technology",
-        period: "" }
+        period: "202209-202504" }
    ],
     undergrad: [
       { name: "Wilson Wongosari",
         topic: "Undergraduate student — School of Mechanical and Aerospace Engineering, NTU",
-        period: "" }
+        period: "202407-202505" }
     ],
     empty: ""
   },
