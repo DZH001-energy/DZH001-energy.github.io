@@ -167,8 +167,14 @@ if ($needRewrite) {
     Say "检测到历史提交含非 noreply 邮箱，正在改写（保留提交历史）..." "Yellow"
     $null = & $git filter-branch -f --env-filter "export GIT_AUTHOR_EMAIL='$noreply'; export GIT_COMMITTER_EMAIL='$noreply'" -- --all 2>&1
     if ($LASTEXITCODE -ne 0) {
-        Say "  邮箱改写失败，尝试改用重新提交方式..." "Yellow"
-        & $git branch -f main 2>&1 | Out-Null
+        # PortableGit 的 cmd 模式没有 sh，filter-branch 不可用 -> 折叠为单条初始提交
+        Say "  filter-branch 不可用，改为折叠为单条初始提交（历史仅本地存在，线上无影响）..." "Yellow"
+        & $git checkout --orphan _fresh 2>&1 | Out-Null
+        & $git add -A 2>&1 | Out-Null
+        & $git -c core.quotepath=false commit -m "feat: personal academic homepage v1.0" 2>&1 | Out-Null
+        & $git branch -D main 2>&1 | Out-Null
+        & $git branch -M _fresh main 2>&1 | Out-Null
+        Say "[OK] 历史已折叠为单条 noreply 提交" "Green"
     } else {
         Remove-Item (Join-Path $PSScriptRoot ".git\refs\original") -Recurse -Force -ErrorAction SilentlyContinue
         & $git reflog expire --expire=now --all 2>&1 | Out-Null
