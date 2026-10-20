@@ -90,16 +90,13 @@ Say "[1/3] 暂存改动..."
 & $git add -A | Out-Null
 
 & $git diff --cached --quiet
-if ($LASTEXITCODE -eq 0) {
-    Say ""
-    Say "[提示] 没有检测到内容改动，无需发布。" "Yellow"
-    Read-Host "按回车退出" | Out-Null
-    exit 0
+if ($LASTEXITCODE -ne 0) {
+    Say "[2/3] 提交..."
+    & $git -c core.quotepath=false commit -m "update $(Get-Date -Format 'yyyy-MM-dd HH:mm')" | Out-Null
+    if ($LASTEXITCODE -ne 0) { Die "提交失败，请查看上方错误信息。" }
+} else {
+    Say "[2/3] 没有新的文件改动（已有提交也会照常推送）"
 }
-
-Say "[2/3] 提交..."
-& $git -c core.quotepath=false commit -m "update $(Get-Date -Format 'yyyy-MM-dd HH:mm')" | Out-Null
-if ($LASTEXITCODE -ne 0) { Die "提交失败，请查看上方错误信息。" }
 
 Say "[3/3] 推送到远程仓库..."
 $out = & $git push origin main 2>&1 | Out-String
