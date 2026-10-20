@@ -20,6 +20,36 @@ Set-Location -Path $PSScriptRoot
 $logFile = Join-Path $PSScriptRoot "setup-github.log"
 "" | Out-File -FilePath $logFile -Encoding utf8
 
+
+# ---------------------------------------------------------------
+#  发布前语法自检：防止把有语法错误的 JS 推上线
+#  （手改 content.js 时漏一个逗号就足以让整站白屏）
+#  找不到 node 时跳过检查，不阻塞发布
+# ---------------------------------------------------------------
+function Test-JsSyntax {
+    $node = Get-Command node.exe -ErrorAction SilentlyContinue
+    if (-not $node) {
+        foreach ($c in @("$env:ProgramFiles\nodejs\node.exe",
+                         "${env:ProgramFiles(x86)}\nodejs\node.exe",
+                         "$env:APPDATA\nvm\current\node.exe")) {
+            if (Test-Path $c) { $node = $c; break }
+        }
+    }
+    if (-not $node) { return "" }
+    $bad = @()
+    foreach ($f in @("assets\js\content.js", "assets\js\render.js", "assets\js\main.js")) {
+        $p = Join-Path $PSScriptRoot $f
+        if (-not (Test-Path $p)) { continue }
+        $out = & $node --check $p 2>&1 | Out-String
+        if ($LASTEXITCODE -ne 0) {
+            $first = ($out -split "`r?`n" | Where-Object { $_ -match "SyntaxError" } | Select-Object -First 1)
+            $ln = ($out -split "`r?`n" | Where-Object { $_ -match "content\.js:/d+|render/.js:/d+|main/.js:/d+|/.js:/d+" } | Select-Object -First 1)
+            $bad += "  $f" + $(if ($ln) { "  ($($ln.Trim()))" } else { "" }) + $(if ($first) { "`n     $($first.Trim())" } else { "" })
+        }
+    }
+    return ($bad -join "`n")
+}
+
 function Say($msg, $color = "Gray") {
     Write-Host $msg -ForegroundColor $color
     Add-Content -Path $logFile -Value $msg -Encoding utf8
@@ -111,6 +141,14 @@ if (-not $token) {
 }
 $token = $token.Trim()
 Say "[OK] 已读取本地 token（前缀 $($token.Substring(0,4))…）" "Green"
+
+# ---------- 1.5 发布前语法自检 ----------
+$synErr = Test-JsSyntax
+if ($synErr) {
+    Say "[X] JavaScript 语法检查未通过，已中止。" "Red"
+    Say $synErr "Red"
+    Die "请先修正语法错误。"
+}
 
 # ---------- 2. 定位 git ----------
 $git = Get-GitExe

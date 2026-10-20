@@ -22,6 +22,36 @@ trap {
 #  （双击 .bat 启动的进程通常没有 git 环境，必须显式查找）
 # ---------------------------------------------------------------
 
+
+# ---------------------------------------------------------------
+#  发布前语法自检：防止把有语法错误的 JS 推上线
+#  （手改 content.js 时漏一个逗号就足以让整站白屏）
+#  找不到 node 时跳过检查，不阻塞发布
+# ---------------------------------------------------------------
+function Test-JsSyntax {
+    $node = Get-Command node.exe -ErrorAction SilentlyContinue
+    if (-not $node) {
+        foreach ($c in @("$env:ProgramFiles\nodejs\node.exe",
+                         "${env:ProgramFiles(x86)}\nodejs\node.exe",
+                         "$env:APPDATA\nvm\current\node.exe")) {
+            if (Test-Path $c) { $node = $c; break }
+        }
+    }
+    if (-not $node) { return "" }
+    $bad = @()
+    foreach ($f in @("assets\js\content.js", "assets\js\render.js", "assets\js\main.js")) {
+        $p = Join-Path $PSScriptRoot $f
+        if (-not (Test-Path $p)) { continue }
+        $out = & $node --check $p 2>&1 | Out-String
+        if ($LASTEXITCODE -ne 0) {
+            $first = ($out -split "`r?`n" | Where-Object { $_ -match "SyntaxError" } | Select-Object -First 1)
+            $ln = ($out -split "`r?`n" | Where-Object { $_ -match "content\.js:/d+|render/.js:/d+|main/.js:/d+|/.js:/d+" } | Select-Object -First 1)
+            $bad += "  $f" + $(if ($ln) { "  ($($ln.Trim()))" } else { "" }) + $(if ($first) { "`n     $($first.Trim())" } else { "" })
+        }
+    }
+    return ($bad -join "`n")
+}
+
 function Enable-GitAuth {
     $dir = Join-Path $env:TEMP "zdsite-askpass"
     New-Item -ItemType Directory -Force -Path $dir | Out-Null
@@ -64,6 +94,17 @@ $git = Get-GitExe
 if (-not $git) {
     Die "没有找到 git。请先安装 Git for Windows: https://git-scm.com/download/win"
 }
+
+# ---------- 发布前语法自检 ----------
+$synErr = Test-JsSyntax
+if ($synErr) {
+    Say "[X] JavaScript 语法检查未通过，已中止发布（避免把坏文件推上线）。" "Red"
+    Say $synErr "Red"
+    Say ""
+    Say "常见原因：对象/数组元素之间漏了逗号、引号没闭合、末尾多了一个逗号。" "Yellow"
+    Die "请先修正上述语法错误，再重新发布。"
+}
+Say "[OK] JS 语法自检通过" "Green"
 
 # 远程仓库检查
 $remote = & $git remote get-url origin 2>$null
