@@ -1,0 +1,20 @@
+/* Uses the existing site's light, dark and midnight theme tokens. */
+.project-video-grid { display: grid; gap: 1.5rem; }
+.project-video { overflow: hidden; border: 1px solid var(--line, #dbe3ed); border-radius: var(--r-lg); background: var(--surface); min-width: 0; }
+.project-video__screen { background: var(--navy-900); }
+.project-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
+.project-video__body { padding: 1.5rem; }
+.project-video__meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; color: var(--muted); font-size: .75rem; line-height: 1.5; margin-bottom: .75rem; }
+.project-video__category { color: var(--ink-2); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.project-video h3 { margin: 0 0 .75rem; color: var(--ink); font-size: 1.2rem; line-height: 1.35; }
+.project-video p { margin: 0 0 1rem; color: var(--ink-2); font-size: .9rem; line-height: 1.7; }
+.project-video__links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; font-size: .85rem; }
+.project-video details { color: var(--ink-2); font-size: .85rem; margin-top: 1rem; }
+.project-video summary { cursor: pointer; padding: .5rem 0; }
+.project-video details p { margin-top: .5rem; font-size: .85rem; }
+.project-video__error { margin: 0; padding: .75rem 1rem; background: var(--bg-alt); color: var(--ink); }
+.project-video a:focus-visible, .project-video summary:focus-visible, .project-video video:focus-visible { outline: 3px solid var(--accent-3); outline-offset: 4px; }
+.project-videos-note { margin: 1.5rem 0; color: var(--muted); font-size: .8rem; line-height: 1.7; }
+@media (min-width: 768px) { .project-video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1120px) { .project-video-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 380px) { .project-video__body { padding: 1rem; } }

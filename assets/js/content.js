@@ -75,7 +75,7 @@ const SITE = {
       { href: "#about",         label: "About" },
       { href: "#news",          label: "News" },
       { href: "#research",      label: "Research" },
-      { href: "#media",         label: "Figures" },
+      { href: "#media",         label: "Demos" },
       { href: "#publications",  label: "Publications" },
       { href: "#patents",       label: "Patents" },
       { href: "#talks",         label: "Talks" },
@@ -216,6 +216,36 @@ const SITE = {
 
        ★ 加自己的照片/视频：复制下面任意一条改路径即可
      ------------------------------------------------------------------ */
+  // Only add recordings here after their media files and provenance are verified.
+  projectVideos: [
+    {
+      title: "Renewable hydrogen production",
+      category: "HYDROGRID AEM",
+      duration: "60 seconds",
+      src: "assets/media/demos/hydrogrid-aem.mp4",
+      poster: "assets/media/demos/hydrogrid-aem.jpg",
+      description: "A Unity–Simulink platform linking variable solar and wind generation to an AEM electrolyser, electrical storage and balance-of-plant systems. The demonstration follows the power supply, stack and cooling circuits alongside live process signals.",
+      recording: "Recorded from the local HYDROGRID AEM V1.0 software on 25 October 2026. Edited views show renewable input, the stack, circulation and cooling, and DC-bus and power trends. This is an uncalibrated research model; the 3D layout is not as-built equipment. Any accelerated footage is labelled."
+    },
+    {
+      title: "Robotic fuel-cell experimentation",
+      category: "Autonomous PEMFC lab",
+      duration: "60 seconds",
+      src: "assets/media/demos/pemfc-autonomous-lab.mp4",
+      poster: "assets/media/demos/pemfc-autonomous-lab.jpg",
+      description: "A robotic-arm testbed model for fuel-cell experimentation. Close-up views connect gripper and valve actions, load adjustment and electrical feedback within a native Simulink co-simulation.",
+      recording: "Recorded from the local PEMFC Autonomous Lab V21 software on 25 October 2026. Highlights combine separate sessions: robot-operated load-knob adjustment from 1 A to 2 A, electrical feedback, and an unloaded shutdown with valve closure and gripper release. Accelerated sections are labelled. Robot, valve and sensor dynamics require physical calibration; this is not a completed optimisation benchmark."
+    },
+    {
+      title: "Hybrid hydrogen UAV",
+      category: "Fuel-cell–battery propulsion",
+      duration: "60 seconds",
+      src: "assets/media/demos/hybrid-uav.mp4",
+      poster: "assets/media/demos/hybrid-uav.jpg",
+      description: "A Unity flight scene coupled to a native Simulink fuel-cell–battery powertrain. A registered climb scenario shows altitude and velocity together with fuel-cell power, battery power, SOC and DC-bus voltage.",
+      recording: "Recorded from the local V4.8 research platform on 25 October 2026. This is offline lockstep co-simulation, not a flight test or real-time hardware demonstration. The completed run passed its coupling-trace and reference-task checks, but not its full-run protection check because of a startup OER excursion. No safety, endurance or energy-saving validation is claimed."
+    }
+  ],
   media: [
     /* 当前为空：Figures & Media 板块会自动隐藏。
        往这里添加你自己的图片 / 视频即可自动显示（见 README 二之二节）。

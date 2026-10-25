@@ -41,7 +41,7 @@
   /* ------------------------------------------------------------------ nav */
   function nav() {
     const ul = $("#navList");
-    const hasMedia = (SITE.media && SITE.media.length) > 0;
+    const hasMedia = (SITE.media || []).length > 0 || (SITE.projectVideos || []).length > 0;
     (SITE.profile.nav || []).filter(item => !(item.href === "#media" && !hasMedia)).forEach(item => {
       const li = el("li");
       li.innerHTML = `<a href="${esc(item.href)}" data-nav="${esc(item.href)}">${esc(item.label)}</a>`;
@@ -322,17 +322,21 @@
   /* --------------------------------------------------------------- media */
   function media() {
     const items = SITE.media || [];
+    const videos = SITE.projectVideos || [];
+    window.ProjectVideos.render(videos);
     const grid = $("#mediaGrid");
     const sub = $("#mediaSub");
     if (sub) {
       const n = items.length;
-      sub.innerHTML = n
+      sub.innerHTML = videos.length
+        ? 'From renewable hydrogen to autonomous experiments and hybrid flight. Short demonstrations recorded from local research software.'
+        : n
         ? `${n} item${n === 1 ? "" : "s"} — research schematics, photographs and videos. Click any item to enlarge or play.`
         : "";
     }
     if (!items.length) {
       const sec = $("#media");
-      if (sec) sec.style.display = "none";     /* 暂无素材：该板块整体留白隐藏 */
+      if (sec) sec.style.display = videos.length ? "" : "none";
       grid.innerHTML = "";
       return;
     }
