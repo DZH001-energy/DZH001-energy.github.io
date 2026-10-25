@@ -232,7 +232,7 @@
         $("#maintTitle").textContent = m.titleCn || m.title || "";
         $("#maintNote").textContent = m.noteCn || m.note || "";
         const mail = $("#maintMail");
-        if (mail) { mail.textContent = m.email ? "Contact me by email" : "Contact"; mail.href = m.email ? "mailto:" + m.email : "#"; }
+        if (mail) { mail.textContent = m.email ? "Email the Author" : "Contact the Author"; mail.href = m.email ? "mailto:" + m.email : "#"; }
         $("#maintFoot").textContent = m.title || "";
         box.classList.add("on");
         document.body.classList.add("is-maintenance");

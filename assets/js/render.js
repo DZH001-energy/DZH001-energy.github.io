@@ -75,7 +75,7 @@
     /* buttons */
     const acts = $("#heroActions");
     acts.innerHTML = "";
-    if (p.email) acts.appendChild(el("a", "btn btn-primary", `${icon("mail")} Email me`)).href = `mailto:${p.email}`;
+    if (p.email) acts.appendChild(el("a", "btn btn-primary", `${icon("mail")} Email the Author`)).href = `mailto:${p.email}`;
     if (p.cvFile) {
       const a = el("a", "btn btn-ghost", `${icon("doc")} Download CV`);
       a.href = p.cvFile; a.target = "_blank"; a.rel = "noopener";
@@ -373,7 +373,7 @@
     $("#maintNote").textContent = m.note || "";
     const mail = $("#maintMail");
     if (mail) {
-      mail.textContent = m.email ? "Contact me by email" : "Contact";
+      mail.textContent = m.email ? "Email the Author" : "Contact the Author";
       mail.href = m.email ? "mailto:" + m.email : "#";
     }
     $("#maintFoot").textContent = m.title || "";

@@ -9,9 +9,18 @@ Posters are frames from the corresponding edited videos.
 
 ## Contents
 
-- **hydrogrid-aem-professional-v5.mp4** — Renewable supply, AEM stack, balance-of-plant pumps and heat exchanger, and separate hydrogen/oxygen storage. Close-ups and process telemetry are crops from the same recorded frame, with concise English captions.
-- **pemfc-autonomous-lab-professional-v6.mp4** — Robot-operated load knob, electrical response, and unloaded valve closure followed by gripper release. Separate local sessions are combined. Synchronized close-ups show the robot, current, voltage and valve status. Recording-speed changes are marked on screen.
-- **hybrid-uav-cinematic-v6.mp4** — A continuous recorded mission covering takeoff, accelerating climb, cruise, lateral avoidance of a known static obstacle, descent and touchdown. Close-up camera views retain an accompanying complete ground-path trace and altitude history. Same-run native logs provide fuel-cell and battery power, delivered propulsion shaft power, DC-bus voltage, SOC and stack temperature histories.
+- **hydrogrid-aem-professional-v6.mp4** — Renewable supply, AEM stack, balance-of-plant pumps and heat exchanger, and separate hydrogen/oxygen storage. Close-ups and process telemetry are crops from the same recorded frame, with concise English captions.
+- **pemfc-autonomous-lab-professional-v7.mp4** — Robot-operated load knob, electrical response, and unloaded valve closure followed by gripper release. Separate local sessions are combined. Synchronized close-ups show the robot, current, voltage and valve status. Accelerated sections have compact 2x/3x indicators.
+- **hybrid-uav-cinematic-v7.mp4** — A continuous recorded mission covering takeoff, accelerating climb, cruise, lateral avoidance of a known static obstacle, descent and touchdown. Close-up camera views retain an accompanying complete ground-path trace and altitude history. Same-run native logs provide fuel-cell and battery power, delivered propulsion shaft power, DC-bus voltage, SOC and stack temperature histories.
+
+The current versions remove the editorial footer sentences about recording
+speed, session names and synchronized crops. The UAV recording/log footer is
+also removed. Only these footer regions were covered; imagery, data curves,
+phase captions, attribution and timing remain unchanged apart from video
+re-encoding. Original files are retained. The mechanical-arm sequence retains
+2x indicators at 8–20 s and 50–60 s, and a 3x indicator at 35–50 s; all other
+segments keep their previous timing. These factors describe playback relative
+to the source recording, not simulation real-time performance.
 
 Each current export includes persistent attribution in a separate header:
 **Dr. Zhihua Deng | Prof. Siew Hwa Chan**, **Fuel Cell Lab | Nanyang Technological University**.

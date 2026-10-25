@@ -30,7 +30,7 @@ const SITE = {
     maintenance: {
       title: "This site is temporarily offline",
       titleCn: "",
-      note: "I am updating the research content. Please check back soon, or get in touch by email.",
+      note: "The Author is updating this website. For enquiries, please use the email link below.",
       noteCn: "",
       email: "zhihua.deng@ntu.edu.sg"
     }
@@ -55,9 +55,8 @@ const SITE = {
     title: "Senior Research Engineer I",
     affiliation: "Energy Research Institute at NTU (ERI@N), Nanyang Technological University",
     location: "Singapore 637141",
-    tagline: "Dr. Deng develops models, controllers and AI that let hydrogen, fuel-cell and ammonia energy "
-           + "systems live longer, respond faster and cost less to run — from the membrane electrode up to the "
-           + "full hybrid powertrain.",
+    tagline: "Research on modelling, control and diagnostics of fuel cells, hydrogen production and ammonia-based "
+           + "energy systems, with applications in hybrid propulsion and energy management.",
     email: "zhihua.deng@ntu.edu.sg",
     /* 把下面的 URL 换成你自己的主页（留空则该按钮自动隐藏） */
     links: {
@@ -100,29 +99,26 @@ const SITE = {
 
   /* ------------------------------------------------------------------
      3. ABOUT  ·  个人简介（支持 **加粗**）
-     说明：本节采用第三人称称谓式（Dr. Deng / the research programme），
-           适合正式学术主页。若想改回第一人称，把 "Dr. Deng" 换成 "I"、
-           "the research programme" 换成 "my research" 即可。
+     说明：采用第三人称学术简介；作者称谓使用 Dr. Deng / the Author。
+           职称 Senior Research Engineer I 中的 I 为职级，不作人称替换。
      ------------------------------------------------------------------ */
   about: {
     paragraphs: [
       "Dr. Deng is a <strong>Senior Research Engineer I</strong> at the <strong>Energy Research Institute at NTU "
-      + "(ERI@N)</strong>, Nanyang Technological University, Singapore. The research programme sits at the intersection "
-      + "of <strong>electrochemical energy systems</strong> and <strong>artificial intelligence</strong>: physically "
-      + "meaningful models, real-time controllers and data-driven diagnostics that allow fuel cells, electrolysers and "
-      + "ammonia-based power systems to operate closer to their true limits.",
+      + "(ERI@N)</strong>, Nanyang Technological University, Singapore. His research focuses on "
+      + "<strong>electrochemical energy systems</strong>, including fuel cells, electrolysers and ammonia-based power "
+      + "systems, using mechanistic modelling, control theory and <strong>machine learning</strong>.",
 
-      "The work spans the full stack of the problem — <strong>control-oriented modelling</strong> of air supply and "
-      + "thermal subsystems, <strong>model predictive and data-driven control</strong>, <strong>degradation and "
-      + "remaining-useful-life prediction</strong>, and <strong>system-level energy management</strong> for hybrid "
-      + "powertrains including UAVs and maritime applications. A recurring theme is making learned models "
-      + "<em>interpretable and deployable</em>, not merely accurate offline.",
+      "Research topics include <strong>control-oriented modelling</strong> of air-supply and thermal subsystems, "
+      + "<strong>model predictive and data-driven control</strong>, <strong>degradation modelling and remaining useful "
+      + "life estimation</strong>, and <strong>energy management</strong> for hybrid powertrains. Current projects "
+      + "include UAV propulsion, maritime energy systems and Unity–Simulink co-simulation.",
 
       "Before joining NTU, Dr. Deng was a postdoctoral researcher at the <strong>Southern University of Science and "
       + "Technology</strong>, and completed the Ph.D. at the <strong>Wuhan University of Technology</strong> with joint "
-      + "training at NTU. Reviews authored in <em>Renewable &amp; Sustainable Energy Reviews</em> are widely used as "
-      + "entry points into fuel-cell modelling and degradation. Dr. Deng also serves the community as a guest editor, "
-      + "editorial board member and peer reviewer."
+      + "training at NTU. His publications include reviews of fuel-cell modelling and degradation prediction in "
+      + "<em>Renewable &amp; Sustainable Energy Reviews</em>. His academic service includes guest editing, "
+      + "editorial board membership and peer review."
     ],
     /* 右侧 Research Areas 标签 */
     areas: [
@@ -167,15 +163,14 @@ const SITE = {
       icon: "chip",
       title: "AI for Diagnostics &amp; Lifetime Prediction",
       desc: "Machine-learning and neuro-fuzzy methods for degradation trend prediction and remaining useful life estimation, "
-          + "including echo state networks, broad learning systems, ELM-autoencoders and optimiser-tuned hybrid models "
-          + "that stay accurate over long prediction horizons.",
+          + "including echo state networks, broad learning systems, ELM-autoencoders and hybrid models.",
       keywords: ["ESN", "BLS", "Neuro-fuzzy", "RUL", "Health management"]
     },
     {
       icon: "graph",
       title: "Machine Learning for Energy Devices",
       desc: "Data-driven design and lifetime prediction of solid oxide fuel cells, catalyst and materials screening, "
-          + "and machine-learning workflows that connect laboratory testing with field data to compress development cycles.",
+          + "and machine-learning methods for analysing device performance and experimental data.",
       keywords: ["SOFC", "Materials informatics", "ML pipeline"]
     },
     {
@@ -197,7 +192,7 @@ const SITE = {
       icon: "leaf",
       title: "Low-Carbon Processes &amp; Industrial Decarbonisation",
       desc: "Biomass gasification and combustion in industrial steam boilers, CO₂ methanation catalysts, and "
-          + "thermodynamic system studies that turn waste streams and renewable electricity into drop-in fuels.",
+          + "thermodynamic analysis of waste-to-fuel and renewable-electricity-driven conversion processes.",
       keywords: ["Biomass", "CO₂ utilisation", "Steam boilers", "Waste-to-fuel"]
     }
   ],
@@ -223,9 +218,9 @@ const SITE = {
       title: "Renewable hydrogen production",
       category: "HYDROGRID AEM",
       duration: "60 seconds",
-      src: "assets/media/demos/hydrogrid-aem-professional-v5.mp4",
-      poster: "assets/media/demos/hydrogrid-aem-professional-v5.jpg",
-      captions: "assets/media/demos/hydrogrid-aem-professional-v5.vtt",
+      src: "assets/media/demos/hydrogrid-aem-professional-v6.mp4",
+      poster: "assets/media/demos/hydrogrid-aem-professional-v6.jpg",
+      captions: "assets/media/demos/hydrogrid-aem-professional-v6.vtt",
       chapters: [{time: 0, title: "System"}, {time: 12, title: "Renewables"}, {time: 24, title: "Stack"}, {time: 36, title: "Cooling"}, {time: 48, title: "Gas circuits"}],
       transcript: ["Unity-Simulink co-simulation of a renewable-powered AEM electrolyser.", "Solar and wind generation are integrated with the DC bus.", "Simulated electrical and process signals describe electrolyser operation.", "Electrolyte circulation and cooling are shown with process signals.", "Hydrogen and oxygen storage vessels with pressure and flow signals."],
       description: "A Unity–Simulink platform linking variable solar and wind generation to an AEM electrolyser, electrical storage and balance-of-plant systems. The demonstration follows the power supply, stack and cooling circuits alongside live process signals.",
@@ -235,9 +230,9 @@ const SITE = {
       title: "Robotic fuel-cell experimentation",
       category: "Autonomous PEMFC lab",
       duration: "60 seconds",
-      src: "assets/media/demos/pemfc-autonomous-lab-professional-v6.mp4",
-      poster: "assets/media/demos/pemfc-autonomous-lab-professional-v6.jpg",
-      captions: "assets/media/demos/pemfc-autonomous-lab-professional-v6.vtt",
+      src: "assets/media/demos/pemfc-autonomous-lab-professional-v7.mp4",
+      poster: "assets/media/demos/pemfc-autonomous-lab-professional-v7.jpg",
+      captions: "assets/media/demos/pemfc-autonomous-lab-professional-v7.vtt",
       chapters: [{time: 0, title: "Engagement"}, {time: 8, title: "Load adjustment"}, {time: 20, title: "Response"}, {time: 30, title: "Shutdown"}, {time: 35, title: "Valve closure"}, {time: 50, title: "Release"}],
       transcript: ["The gripper engages the load-adjustment knob.", "The robot increases the current demand from 1 A to 2 A.", "Simulated current and stack voltage show the response to the load change.", "Separate shutdown run - load removal precedes valve closure.", "The robot turns the valve handle towards the closed position.", "Valve-status feedback indicates closure before gripper release."],
       description: "A robotic-arm testbed model for fuel-cell experimentation. Close-up views connect gripper and valve actions, load adjustment and electrical feedback within a native Simulink co-simulation.",
@@ -247,9 +242,9 @@ const SITE = {
       title: "Hybrid hydrogen UAV co-simulation",
       category: "Fuel-cell–battery propulsion",
       duration: "1 min 52 s",
-      src: "assets/media/demos/hybrid-uav-cinematic-v6.mp4",
-      poster: "assets/media/demos/hybrid-uav-cinematic-v6.jpg",
-      captions: "assets/media/demos/hybrid-uav-cinematic-v6.vtt",
+      src: "assets/media/demos/hybrid-uav-cinematic-v7.mp4",
+      poster: "assets/media/demos/hybrid-uav-cinematic-v7.jpg",
+      captions: "assets/media/demos/hybrid-uav-cinematic-v7.vtt",
       description: "Integrated flight and powertrain co-simulation, from takeoff and accelerating climb to cruise, obstacle avoidance, descent and touchdown. Close-up views retain the complete flight-path trace, synchronized power data and native Simulink histories of DC-bus voltage, battery SOC and stack temperature.",
       recording: "Recorded on 25 October 2026 from an independently verified mission copy. The visible and headless runs matched at all 36,000 integration intervals for position, velocity and propulsion-power fields. Each captured frame is aligned to its native model tick; delivered shaft power is computed from logged torque and angular speed. Continuous captured wall time is preserved without acceleration; only initialization and terminal idle are trimmed. The model clock is visible. This reference-aircraft software demonstration is not a calibrated flight model, hardware test, real-time qualification or energy-management benchmark."
     }
@@ -488,8 +483,8 @@ const SITE = {
       when: "31/07/2024 · 18/03/2026 · 26/07/2026",
       points: [
         "Invited by NBS to deliver three full-day intensive modules for the Global Innovation Executive Development Programme.",
-        "Instructed over 100 C-level executives and general managers, bridging advanced energy research with practical industrial and business strategy.",
-        "Combined lectures with hands-on laboratory visits, facilitating high-level dialogue on technology commercialisation."
+        "Taught over 100 C-level executives and general managers on energy technologies and their industrial applications.",
+        "Combined lectures with laboratory visits and discussions of technology commercialisation."
       ] }
   ],
 
