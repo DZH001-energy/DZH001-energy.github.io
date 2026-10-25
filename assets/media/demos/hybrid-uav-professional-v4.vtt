@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:15.000
+Unity flight dynamics coupled to a Simulink fuel-cell-battery powertrain.
+
+00:00:15.000 --> 00:00:30.000
+Simulated fuel-cell power, battery power, state of charge and DC-bus voltage.
+
+00:00:30.000 --> 00:00:45.000
+Climb response shown by altitude, velocity and propulsion telemetry.
+
+00:00:45.000 --> 00:01:00.000
+Software co-simulation of the recorded climb scenario.

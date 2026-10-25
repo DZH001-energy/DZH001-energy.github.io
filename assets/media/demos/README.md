@@ -1,15 +1,23 @@
 # Research demonstrations — 25 October 2026
 
-Three 60-second H.264 MP4 recordings, 30 fps, without audio. The updated AEM and
-PEMFC recordings are 1920 × 1080; the existing UAV recording remains 1600 × 900.
+Three 60-second H.264 MP4 recordings, 30 fps, without audio. The current exports
+are 1920 × 1080. The UAV source was 1600 × 900; resizing adds no source detail.
 The website uses native video controls and does not autoplay or preload video data.
 Posters are frames from the corresponding edited videos.
 
 ## Contents
 
-- **hydrogrid-aem-detail-v2.mp4** — Renewable supply, AEM stack, balance-of-plant pumps and heat exchanger, and separate hydrogen/oxygen storage. Close-ups and process telemetry are crops from the same recorded frame, with concise English captions.
-- **pemfc-autonomous-lab-detail-v2.mp4** — Robot-operated load knob, electrical response, and unloaded valve closure followed by gripper release. Separate local sessions are combined. Synchronized close-ups show the robot, current, voltage and valve status. Recording-speed changes are marked on screen.
-- **hybrid-uav.mp4** — A registered climb task with native Simulink fuel-cell/battery power and Unity flight telemetry. The edit includes a brief reprise of the recorded flight, not an extended flight-duration claim.
+- **hydrogrid-aem-professional-v5.mp4** — Renewable supply, AEM stack, balance-of-plant pumps and heat exchanger, and separate hydrogen/oxygen storage. Close-ups and process telemetry are crops from the same recorded frame, with concise English captions.
+- **pemfc-autonomous-lab-professional-v6.mp4** — Robot-operated load knob, electrical response, and unloaded valve closure followed by gripper release. Separate local sessions are combined. Synchronized close-ups show the robot, current, voltage and valve status. Recording-speed changes are marked on screen.
+- **hybrid-uav-professional-v4.mp4** — A registered climb task with native Simulink fuel-cell/battery power and Unity flight telemetry. The edit includes a brief reprise of the recorded flight, not an extended flight-duration claim.
+
+Each current export includes persistent attribution in a separate header:
+**Dr. Zhihua Deng | Prof. Siew Hwa Chan**, **Fuel Cell Lab | Nanyang Technological University**.
+The edit preserves frame count and timing, fitting the previous image below the
+header without cropping or covering recorded telemetry. Editorial captions are
+revised for technical accuracy, with matching English WebVTT files for all three
+videos. Current demand is distinguished from simulated current; robot-operated
+valve-handle rotation is not described as a human operation. Earlier exports remain available.
 
 ## Evidence boundaries
 
@@ -32,13 +40,14 @@ starting another video pauses the previous one.
    versioned filename. Add an English `.vtt` file if available.
 2. Append an entry to `SITE.projectVideos` in `assets/js/content.js`, following an
    existing entry. Set the title, category, duration, description and recording scope.
-   `chapters`, `captions` and `transcript` are optional.
+   `captions` is optional. Recording notes, chapters and transcripts may be retained
+   as source metadata; the cards do not display supplementary links or disclosures.
 3. Use `published: false` while an entry is being prepared. Draft entries and entries
    without a title, video path or poster path are not rendered. Do not publish until
    the referenced files exist and playback has been checked.
-4. Use chapter times in seconds within the video duration. Keep on-screen captions,
-   WebVTT captions and transcript consistent. Describe only demonstrated operations.
-5. Check mobile/desktop layout, chapter seeking and MP4 playback; then update the
+4. Keep on-screen captions and WebVTT captions consistent. Describe only
+   demonstrated operations in the project description.
+5. Check mobile/desktop layout, native video controls and MP4 playback; then update the
    asset cache version in `index.html` when publishing changed JavaScript or CSS.
 
 The current UAV clip demonstrates the recorded climb task. It does not claim a

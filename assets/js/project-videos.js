@@ -34,7 +34,7 @@ window.ProjectVideos = (() => {
       }
       video.setAttribute('aria-labelledby', titleId);
       video.setAttribute('aria-describedby', descId);
-      const error = textNode('p', 'project-video__error', 'Video could not load. Please try the MP4 link below.');
+      const error = textNode('p', 'project-video__error', 'Video could not load. Please check your connection and reload the page.');
       error.hidden = true;
       error.setAttribute('role', 'status');
       video.addEventListener('error', () => { error.hidden = false; });
@@ -50,49 +50,7 @@ window.ProjectVideos = (() => {
       heading.id = titleId;
       const description = textNode('p', '', item.description);
       description.id = descId;
-      const links = textNode('div', 'project-video__links', '');
-      const chapters = textNode('div', 'project-video__chapters', '');
-      chapters.setAttribute('aria-label', `Key moments: ${item.title}`);
-      let pendingTime = null;
-      video.addEventListener('loadedmetadata', () => {
-        if (pendingTime !== null) {
-          video.currentTime = Math.min(pendingTime, video.duration);
-          pendingTime = null;
-        }
-      });
-      (item.chapters || []).forEach(chapter => {
-        const seconds = Number(chapter.time);
-        if (!Number.isFinite(seconds) || seconds < 0) return;
-        const timestamp = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
-        const button = textNode('button', '', `${timestamp}  ${chapter.title}`);
-        button.type = 'button';
-        button.setAttribute('aria-label', `Play ${chapter.title} at ${timestamp}: ${item.title}`);
-        button.addEventListener('click', () => {
-          if (video.readyState === 0) {
-            pendingTime = seconds;
-            video.load();
-          } else {
-            video.currentTime = Math.min(seconds, video.duration);
-          }
-          video.play().catch(() => { /* Native controls remain available if playback is blocked. */ });
-        });
-        chapters.append(button);
-      });
-      const direct = textNode('a', '', 'Open MP4 ↗');
-      direct.href = item.src;
-      direct.target = '_blank';
-      direct.rel = 'noopener';
-      direct.setAttribute('aria-label', `Open MP4: ${item.title}`);
-      links.append(direct);
-      const details = document.createElement('details');
-      details.append(textNode('summary', '', 'About this recording'), textNode('p', '', item.recording));
-      body.append(meta, heading, description, chapters, links, details);
-      if (item.transcript?.length) {
-        const transcript = document.createElement('details');
-        transcript.append(textNode('summary', '', 'English transcript'));
-        item.transcript.forEach(line => transcript.append(textNode('p', '', line)));
-        body.append(transcript);
-      }
+      body.append(meta, heading, description);
       card.append(screen, body);
       grid.append(card);
     });
