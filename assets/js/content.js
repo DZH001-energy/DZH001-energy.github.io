@@ -244,14 +244,14 @@ const SITE = {
       recording: "Recorded from the local PEMFC Autonomous Lab V21 software on 25 October 2026. Highlights combine separate sessions: robot-operated load-knob adjustment from 1 A to 2 A, electrical feedback, and an unloaded shutdown with valve closure and gripper release. Accelerated sections are labelled. Robot, valve and sensor dynamics require physical calibration; this is not a completed optimisation benchmark."
     },
     {
-      title: "Hybrid hydrogen UAV",
+      title: "Hybrid hydrogen UAV co-simulation",
       category: "Fuel-cell–battery propulsion",
-      duration: "5 min 50 s",
-      src: "assets/media/demos/hybrid-uav-full-mission-v5.mp4",
-      poster: "assets/media/demos/hybrid-uav-full-mission-v5.jpg",
-      captions: "assets/media/demos/hybrid-uav-full-mission-v5.vtt",
-      description: "A continuous Unity–Simulink co-simulation covering takeoff, accelerating climb, cruise, a lateral detour around a known obstacle, descent and touchdown. Flight motion is shown alongside simulated fuel-cell power, battery power, SOC and DC-bus voltage.",
-      recording: "Recorded on 25 October 2026 from an independently verified mission copy. The visible and headless runs matched at all 36,000 integration intervals for position, velocity and propulsion-power fields. Continuous recorded timing is preserved; only initialization and terminal idle are trimmed. The model clock is visible. This reference-aircraft software demonstration is not a calibrated flight model, hardware test, real-time qualification or energy-management benchmark."
+      duration: "1 min 52 s",
+      src: "assets/media/demos/hybrid-uav-cinematic-v6.mp4",
+      poster: "assets/media/demos/hybrid-uav-cinematic-v6.jpg",
+      captions: "assets/media/demos/hybrid-uav-cinematic-v6.vtt",
+      description: "Integrated flight and powertrain co-simulation, from takeoff and accelerating climb to cruise, obstacle avoidance, descent and touchdown. Close-up views retain the complete flight-path trace, synchronized power data and native Simulink histories of DC-bus voltage, battery SOC and stack temperature.",
+      recording: "Recorded on 25 October 2026 from an independently verified mission copy. The visible and headless runs matched at all 36,000 integration intervals for position, velocity and propulsion-power fields. Each captured frame is aligned to its native model tick; delivered shaft power is computed from logged torque and angular speed. Continuous captured wall time is preserved without acceleration; only initialization and terminal idle are trimmed. The model clock is visible. This reference-aircraft software demonstration is not a calibrated flight model, hardware test, real-time qualification or energy-management benchmark."
     }
   ],
   media: [

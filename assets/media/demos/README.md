@@ -1,7 +1,9 @@
 # Research demonstrations — 25 October 2026
 
-Three 60-second H.264 MP4 recordings, 30 fps, without audio. The current exports
-are 1920 × 1080. The UAV source was 1600 × 900; resizing adds no source detail.
+Three H.264 MP4 recordings, 30 fps, without audio. The AEM and robotic-lab
+videos are 60 seconds; the complete UAV mission is not limited to 60 seconds.
+The current exports are 1920 × 1080. The cinematic UAV source is a native
+1920 × 1080 Unity client capture; it is not upscaled from the earlier video.
 The website uses native video controls and does not autoplay or preload video data.
 Posters are frames from the corresponding edited videos.
 
@@ -9,12 +11,15 @@ Posters are frames from the corresponding edited videos.
 
 - **hydrogrid-aem-professional-v5.mp4** — Renewable supply, AEM stack, balance-of-plant pumps and heat exchanger, and separate hydrogen/oxygen storage. Close-ups and process telemetry are crops from the same recorded frame, with concise English captions.
 - **pemfc-autonomous-lab-professional-v6.mp4** — Robot-operated load knob, electrical response, and unloaded valve closure followed by gripper release. Separate local sessions are combined. Synchronized close-ups show the robot, current, voltage and valve status. Recording-speed changes are marked on screen.
-- **hybrid-uav-professional-v4.mp4** — A registered climb task with native Simulink fuel-cell/battery power and Unity flight telemetry. The edit includes a brief reprise of the recorded flight, not an extended flight-duration claim.
+- **hybrid-uav-cinematic-v6.mp4** — A continuous recorded mission covering takeoff, accelerating climb, cruise, lateral avoidance of a known static obstacle, descent and touchdown. Close-up camera views retain an accompanying complete ground-path trace and altitude history. Same-run native logs provide fuel-cell and battery power, delivered propulsion shaft power, DC-bus voltage, SOC and stack temperature histories.
 
 Each current export includes persistent attribution in a separate header:
 **Dr. Zhihua Deng | Prof. Siew Hwa Chan**, **Fuel Cell Lab | Nanyang Technological University**.
-The edit preserves frame count and timing, fitting the previous image below the
-header without cropping or covering recorded telemetry. Editorial captions are
+The UAV edit preserves continuous captured wall time, trimming initialization
+and terminal idle. The 15 fps capture is encoded at 30 fps by duplicating frames,
+not synthesizing intermediate motion. Per-frame native-tick metadata selects
+the corresponding log records. The original flight viewport is unchanged;
+data plots are composed into reserved panels. Editorial captions are
 revised for technical accuracy, with matching English WebVTT files for all three
 videos. Current demand is distinguished from simulated current; robot-operated
 valve-handle rotation is not described as a human operation. Earlier exports remain available.
@@ -25,7 +30,16 @@ These are recordings of running research software, not physical prototypes, flig
 
 - HYDROGRID uses an uncalibrated averaged model and a reference 3D layout. The overview session completed; detail views came from a separate operator-stopped session.
 - PEMFC robot, valve, thermal and sensor models require hardware calibration. The knob sequence was stopped after demonstration; no complete autonomous-optimisation result is claimed.
-- The UAV run passed its trace-coupling and registered-task checks but failed its full-run protection check because of a startup oxygen-excess-ratio excursion. The video does not demonstrate flight safety, endurance or energy savings. A failed supplemental capture was excluded.
+- The current UAV mission passed 18 software-demonstration checks, including takeoff, avoidance, descent and ground-contact/disarm. Its position, velocity and propulsion-power fields match an earlier independently recorded run at all 36,000 fixed integration intervals. Earlier failed development runs are retained separately; this is not flight-safety certification, calibrated aircraft validation, endurance or energy-savings evidence.
+
+The propulsion shaft trace is independently recomputed from native load torque
+times angular speed, matching the nonnegative power available to Unity flight
+dynamics. It is not conflated with the model's distinct internal mechanical
+power signal. Other plot transformations are W to kW and K to degrees Celsius;
+SOC is already logged in percent. Time-history drawing retains first/minimum/
+maximum/last observations in chronological order within each pixel column and
+reveals only past data. No smoothing is applied. Model time is labelled because
+offline simulation speed differs from the captured wall clock.
 
 Raw recordings, native run outputs, recording receipts, source hashes and frame-accurate edit plans are retained locally by the author. Reviewed MP4s, poster frames, English WebVTT captions and this description are published; private local paths and runtime logs are not included. Previous video versions are retained.
 
@@ -50,6 +64,5 @@ starting another video pauses the previous one.
 5. Check mobile/desktop layout, native video controls and MP4 playback; then update the
    asset cache version in `index.html` when publishing changed JavaScript or CSS.
 
-The current UAV clip demonstrates the recorded climb task. It does not claim a
-complete takeoff-to-landing mission; such a replacement requires a separate
-verified run before publication.
+Older video versions remain available as historical artifacts. The current
+website points only to the latest reviewed exports listed above.
