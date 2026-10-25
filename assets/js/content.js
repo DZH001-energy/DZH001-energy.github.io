@@ -216,14 +216,18 @@ const SITE = {
 
        ★ 加自己的照片/视频：复制下面任意一条改路径即可
      ------------------------------------------------------------------ */
-  // Only add recordings here after their media files and provenance are verified.
+  // Add future projects here; cards automatically wrap into new rows.
+  // Set published: false for drafts. Publish only verified, playable recordings.
   projectVideos: [
     {
       title: "Renewable hydrogen production",
       category: "HYDROGRID AEM",
       duration: "60 seconds",
-      src: "assets/media/demos/hydrogrid-aem.mp4",
-      poster: "assets/media/demos/hydrogrid-aem.jpg",
+      src: "assets/media/demos/hydrogrid-aem-detail-v2.mp4",
+      poster: "assets/media/demos/hydrogrid-aem-detail-v2.jpg",
+      captions: "assets/media/demos/hydrogrid-aem-detail-v2.vtt",
+      chapters: [{time: 0, title: "System"}, {time: 12, title: "Renewables"}, {time: 24, title: "Stack"}, {time: 36, title: "Cooling"}, {time: 48, title: "Gas circuits"}],
+      transcript: ["Connect renewable electricity to hydrogen production.", "Follow solar and wind power alongside the DC bus.", "Inspect the stack with live electrical and process data.", "Trace electrolyte circulation and cooling demand.", "View hydrogen and oxygen storage with process feedback."],
       description: "A Unity–Simulink platform linking variable solar and wind generation to an AEM electrolyser, electrical storage and balance-of-plant systems. The demonstration follows the power supply, stack and cooling circuits alongside live process signals.",
       recording: "Recorded from the local HYDROGRID AEM V1.0 software on 25 October 2026. Edited views show renewable input, the stack, circulation and cooling, and DC-bus and power trends. This is an uncalibrated research model; the 3D layout is not as-built equipment. Any accelerated footage is labelled."
     },
@@ -231,8 +235,11 @@ const SITE = {
       title: "Robotic fuel-cell experimentation",
       category: "Autonomous PEMFC lab",
       duration: "60 seconds",
-      src: "assets/media/demos/pemfc-autonomous-lab.mp4",
-      poster: "assets/media/demos/pemfc-autonomous-lab.jpg",
+      src: "assets/media/demos/pemfc-autonomous-lab-detail-v2.mp4",
+      poster: "assets/media/demos/pemfc-autonomous-lab-detail-v2.jpg",
+      captions: "assets/media/demos/pemfc-autonomous-lab-detail-v2.vtt",
+      chapters: [{time: 0, title: "Engagement"}, {time: 8, title: "Load adjustment"}, {time: 20, title: "Response"}, {time: 30, title: "Shutdown"}, {time: 35, title: "Valve closure"}, {time: 50, title: "Release"}],
+      transcript: ["Align the gripper with the load knob.", "Turn the knob - increase the load from 1 A to 2 A.", "Current rises as the simulated stack voltage responds.", "Separate session - remove the load before closing the valve.", "Rotate the valve towards the closed position.", "Confirm closure, then release the gripper."],
       description: "A robotic-arm testbed model for fuel-cell experimentation. Close-up views connect gripper and valve actions, load adjustment and electrical feedback within a native Simulink co-simulation.",
       recording: "Recorded from the local PEMFC Autonomous Lab V21 software on 25 October 2026. Highlights combine separate sessions: robot-operated load-knob adjustment from 1 A to 2 A, electrical feedback, and an unloaded shutdown with valve closure and gripper release. Accelerated sections are labelled. Robot, valve and sensor dynamics require physical calibration; this is not a completed optimisation benchmark."
     },

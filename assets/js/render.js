@@ -329,7 +329,7 @@
     if (sub) {
       const n = items.length;
       sub.innerHTML = videos.length
-        ? 'From renewable hydrogen to autonomous experiments and hybrid flight. Short demonstrations recorded from local research software.'
+        ? 'Modelling, intelligent control, and co-simulation of clean energy and autonomous systems.'
         : n
         ? `${n} item${n === 1 ? "" : "s"} — research schematics, photographs and videos. Click any item to enlarge or play.`
         : "";
