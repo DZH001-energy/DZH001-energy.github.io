@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:21.190
+Ground support confirmed before propulsion demand is enabled.
+
+00:00:21.190 --> 00:01:19.013
+Takeoff driven by the coupled Simulink powertrain.
+
+00:01:19.013 --> 00:01:49.285
+Forward acceleration and climb with native propulsion feedback.
+
+00:01:49.285 --> 00:01:57.635
+Cruise with fuel-cell and battery power sharing.
+
+00:01:57.635 --> 00:03:13.700
+A lateral detour clears a known static obstacle.
+
+00:03:13.700 --> 00:04:03.879
+Forward speed is reduced before the landing approach.
+
+00:04:03.879 --> 00:05:28.813
+Controlled descent with reduced vertical speed near the ground.
+
+00:05:28.813 --> 00:05:50.233
+Ground contact is followed by disarm and motor-power decay.

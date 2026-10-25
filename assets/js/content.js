@@ -246,12 +246,12 @@ const SITE = {
     {
       title: "Hybrid hydrogen UAV",
       category: "Fuel-cell–battery propulsion",
-      duration: "60 seconds",
-      src: "assets/media/demos/hybrid-uav-professional-v4.mp4",
-      poster: "assets/media/demos/hybrid-uav-professional-v4.jpg",
-      captions: "assets/media/demos/hybrid-uav-professional-v4.vtt",
-      description: "A Unity flight scene coupled to a native Simulink fuel-cell–battery powertrain. A registered climb scenario shows altitude and velocity together with fuel-cell power, battery power, SOC and DC-bus voltage.",
-      recording: "Recorded from the local V4.8 research platform on 25 October 2026. This is offline lockstep co-simulation, not a flight test or real-time hardware demonstration. The completed run passed its coupling-trace and reference-task checks, but not its full-run protection check because of a startup OER excursion. No safety, endurance or energy-saving validation is claimed."
+      duration: "5 min 50 s",
+      src: "assets/media/demos/hybrid-uav-full-mission-v5.mp4",
+      poster: "assets/media/demos/hybrid-uav-full-mission-v5.jpg",
+      captions: "assets/media/demos/hybrid-uav-full-mission-v5.vtt",
+      description: "A continuous Unity–Simulink co-simulation covering takeoff, accelerating climb, cruise, a lateral detour around a known obstacle, descent and touchdown. Flight motion is shown alongside simulated fuel-cell power, battery power, SOC and DC-bus voltage.",
+      recording: "Recorded on 25 October 2026 from an independently verified mission copy. The visible and headless runs matched at all 36,000 integration intervals for position, velocity and propulsion-power fields. Continuous recorded timing is preserved; only initialization and terminal idle are trimmed. The model clock is visible. This reference-aircraft software demonstration is not a calibrated flight model, hardware test, real-time qualification or energy-management benchmark."
     }
   ],
   media: [
