@@ -47,6 +47,10 @@ for (const count of [0, 1, 3, 6, 9]) {
 }
 render([...entries, {...entries[0], published: false}, {title: 'Not yet recorded'}, null]);
 assert.equal(grid.children.length, 3, 'Drafts must not produce blank players');
+assert.equal(grid.querySelectorAll('p').filter(p => p.className === 'project-video__authors').length, 0,
+  'Author credits belong inside the videos, not below the project cards');
+assert.ok(grid.querySelectorAll('p').every(p => !p.textContent.includes('Dr. Bin Miao')),
+  'Do not duplicate the burned-in video credits in card text');
 const [first, second] = grid.querySelectorAll('video');
 first.play();
 assert.equal(first.paused, false);

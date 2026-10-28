@@ -52,7 +52,6 @@ window.ProjectVideos = (() => {
       const description = textNode('p', '', item.description);
       description.id = descId;
       body.append(meta, heading, description);
-      if (item.authors) body.append(textNode('p', 'project-video__authors', item.authors));
       card.append(screen, body);
       grid.append(card);
     });

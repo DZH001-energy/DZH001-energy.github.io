@@ -9,7 +9,6 @@
 .project-video h3 { margin: 0 0 .75rem; color: var(--ink); font-size: 1.2rem; line-height: 1.35; }
 .project-video p { margin: 0 0 1rem; color: var(--ink-2); font-size: .9rem; line-height: 1.7; }
 .project-video__body > p:last-child { margin-bottom: 0; }
-.project-video .project-video__authors { margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--line); font-size: .78rem; color: var(--ink-2); line-height: 1.7; }
 .research-link__visual { aspect-ratio: 16 / 9; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; padding: clamp(1.25rem, 3vw, 2.5rem); background: var(--navy-900); color: #edf5fc; border-bottom: 3px solid #53d6c6; }
 .research-link__eyebrow { color: #a9c5d7; font-size: .65rem; font-weight: 700; letter-spacing: .16em; }
 .research-link__wordmark { display: block; margin: .5rem 0; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.1; letter-spacing: -.03em; }
