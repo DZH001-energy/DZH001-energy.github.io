@@ -41,7 +41,7 @@
   /* ------------------------------------------------------------------ nav */
   function nav() {
     const ul = $("#navList");
-    const hasMedia = (SITE.media || []).length > 0 || (SITE.projectVideos || []).length > 0;
+    const hasMedia = (SITE.media || []).length > 0 || (SITE.projectVideos || []).length > 0 || (SITE.researchLinks || []).length > 0;
     (SITE.profile.nav || []).filter(item => !(item.href === "#media" && !hasMedia)).forEach(item => {
       const li = el("li");
       li.innerHTML = `<a href="${esc(item.href)}" data-nav="${esc(item.href)}">${esc(item.label)}</a>`;
@@ -102,6 +102,20 @@
   /* ---------------------------------------------------------------- about */
   function about() {
     $("#aboutBody").innerHTML = (SITE.about.paragraphs || []).map(t => `<p>${rich(t)}</p>`).join("");
+    const profile = SITE.about.externalProfile;
+    if (profile && /^https:\/\/[^\s]+$/i.test(profile.href)) {
+      const note = el('div', 'about-profile-link');
+      const a = document.createElement('a');
+      a.href = profile.href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = `${profile.label} ↗`;
+      a.setAttribute('aria-label', `${profile.label} (opens in a new tab)`);
+      const role = document.createElement('span');
+      role.textContent = profile.role;
+      note.append(a, role);
+      $("#aboutBody").append(note);
+    }
     $("#aboutAreas").innerHTML = (SITE.about.areas || []).map(a => `<li class="tag">${rich(a)}</li>`).join("");
     $("#aboutFacts").innerHTML =
       `<h3>At a glance</h3><ul class="fact-list">` +
@@ -323,12 +337,13 @@
   function media() {
     const items = SITE.media || [];
     const videos = SITE.projectVideos || [];
-    window.ProjectVideos.render(videos);
+    const links = SITE.researchLinks || [];
+    window.ProjectVideos.render(videos, links);
     const grid = $("#mediaGrid");
     const sub = $("#mediaSub");
     if (sub) {
       const n = items.length;
-      sub.innerHTML = videos.length
+      sub.innerHTML = videos.length || links.length
         ? 'Modelling, intelligent control, and co-simulation of clean energy and autonomous systems.'
         : n
         ? `${n} item${n === 1 ? "" : "s"} — research schematics, photographs and videos. Click any item to enlarge or play.`
@@ -336,7 +351,7 @@
     }
     if (!items.length) {
       const sec = $("#media");
-      if (sec) sec.style.display = videos.length ? "" : "none";
+      if (sec) sec.style.display = videos.length || links.length ? "" : "none";
       grid.innerHTML = "";
       return;
     }

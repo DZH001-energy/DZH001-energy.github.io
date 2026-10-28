@@ -7,7 +7,8 @@ window.ProjectVideos = (() => {
     node.textContent = text;
     return node;
   };
-  function render(items) {
+  const safeExternal = href => typeof href === 'string' && /^https:\/\/[^\s]+$/i.test(href);
+  function render(items, researchLinks = []) {
     const grid = document.getElementById('projectVideos');
     if (!grid) return;
     document.getElementById('project-videos-note')?.remove();
@@ -51,7 +52,33 @@ window.ProjectVideos = (() => {
       const description = textNode('p', '', item.description);
       description.id = descId;
       body.append(meta, heading, description);
+      if (item.authors) body.append(textNode('p', 'project-video__authors', item.authors));
       card.append(screen, body);
+      grid.append(card);
+    });
+    researchLinks.filter(item => item && item.published !== false && item.title && safeExternal(item.href)).forEach((item, index) => {
+      const card = textNode('article', 'project-video research-link', '');
+      const titleId = `research-link-title-${index}`;
+      card.setAttribute('aria-labelledby', titleId);
+      const visual = textNode('div', 'research-link__visual', '');
+      visual.append(textNode('span', 'research-link__eyebrow', 'RESEARCH & DEVELOPMENT'));
+      visual.append(textNode('span', 'research-link__wordmark', item.title));
+      visual.append(textNode('p', 'research-link__strapline', item.strapline));
+      const topics = textNode('ul', 'research-link__topics', '');
+      (item.topics || []).forEach(topic => topics.append(textNode('li', '', topic)));
+      visual.append(topics);
+      const body = textNode('div', 'project-video__body', '');
+      const meta = textNode('div', 'project-video__meta', '');
+      meta.append(textNode('span', 'project-video__category', item.category), textNode('span', '', 'External website'));
+      const heading = textNode('h3', '', item.title);
+      heading.id = titleId;
+      const link = textNode('a', 'research-link__cta', `${item.linkLabel} ↗`);
+      link.href = item.href;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', `${item.linkLabel} at ${item.title} (opens in a new tab)`);
+      body.append(meta, heading, textNode('p', '', item.description), link);
+      card.append(visual, body);
       grid.append(card);
     });
   }

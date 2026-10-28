@@ -1,4 +1,4 @@
-# Research demonstrations — 25 October 2026
+# Research demonstrations — credits updated 28 October 2026
 
 Three H.264 MP4 recordings, 30 fps, without audio. The AEM and robotic-lab
 videos are 60 seconds; the complete UAV mission is not limited to 60 seconds.
@@ -9,11 +9,18 @@ Posters are frames from the corresponding edited videos.
 
 ## Contents
 
-- **hydrogrid-aem-professional-v6.mp4** — Renewable supply, AEM stack, balance-of-plant pumps and heat exchanger, and separate hydrogen/oxygen storage. Close-ups and process telemetry are crops from the same recorded frame, with concise English captions.
-- **pemfc-autonomous-lab-professional-v7.mp4** — Robot-operated load knob, electrical response, and unloaded valve closure followed by gripper release. Separate local sessions are combined. Synchronized close-ups show the robot, current, voltage and valve status. Accelerated sections have compact 2x/3x indicators.
-- **hybrid-uav-cinematic-v7.mp4** — A continuous recorded mission covering takeoff, accelerating climb, cruise, lateral avoidance of a known static obstacle, descent and touchdown. Close-up camera views retain an accompanying complete ground-path trace and altitude history. Same-run native logs provide fuel-cell and battery power, delivered propulsion shaft power, DC-bus voltage, SOC and stack temperature histories.
+- **hydrogrid-aem-professional-v7.mp4** — Renewable supply, AEM stack, balance-of-plant pumps and heat exchanger, and separate hydrogen/oxygen storage. Close-ups and process telemetry are crops from the same recorded frame, with concise English captions.
+- **pemfc-autonomous-lab-professional-v8.mp4** — Robot-operated load knob, electrical response, and unloaded valve closure followed by gripper release. Separate local sessions are combined. Synchronized close-ups show the robot, current, voltage and valve status. Accelerated sections have compact 2x/3x indicators.
+- **hybrid-uav-cinematic-v8.mp4** — A continuous recorded mission covering takeoff, accelerating climb, cruise, lateral avoidance of a known static obstacle, descent and touchdown. Close-up camera views retain an accompanying complete ground-path trace and altitude history. Same-run native logs provide fuel-cell and battery power, delivered propulsion shaft power, DC-bus voltage, SOC and stack temperature histories.
 
-The current versions remove the editorial footer sentences about recording
+The 28 October exports update only the author-name region to **Dr. Zhihua Deng,
+Dr. Bin Miao, Prof. Siew Hwa Chan**. The existing Fuel Cell Lab / Nanyang
+Technological University line remains. All videos retain their resolution,
+frame count, duration, captions, data displays and speed indicators. The original
+versions are preserved. Full decoding and sampled comparisons outside the edited
+header were checked; re-encoding introduces minor compression differences.
+
+The preceding 25 October edits removed the editorial footer sentences about recording
 speed, session names and synchronized crops. The UAV recording/log footer is
 also removed. Only these footer regions were covered; imagery, data curves,
 phase captions, attribution and timing remain unchanged apart from video
@@ -64,7 +71,7 @@ starting another video pauses the previous one.
 2. Append an entry to `SITE.projectVideos` in `assets/js/content.js`, following an
    existing entry. Set the title, category, duration, description and recording scope.
    `captions` is optional. Recording notes, chapters and transcripts may be retained
-   as source metadata; the cards do not display supplementary links or disclosures.
+   as source metadata; video cards do not display supplementary links or disclosures.
 3. Use `published: false` while an entry is being prepared. Draft entries and entries
    without a title, video path or poster path are not rendered. Do not publish until
    the referenced files exist and playback has been checked.
@@ -75,3 +82,11 @@ starting another video pauses the previous one.
 
 Older video versions remain available as historical artifacts. The current
 website points only to the latest reviewed exports listed above.
+
+## Related research pages
+
+`SITE.researchLinks` adds external research cards to the same responsive grid.
+These are explicitly labelled external websites, with no placeholder players.
+The AIone Lab team-page link is also shown in the About section. Its public
+team listing was checked on 28 October 2026 and lists Dr Deng Zhihua as an
+AI Engineer. No reciprocal link or institutional endorsement is implied.

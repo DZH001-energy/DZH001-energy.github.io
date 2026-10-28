@@ -103,6 +103,11 @@ const SITE = {
            职称 Senior Research Engineer I 中的 I 为职级，不作人称替换。
      ------------------------------------------------------------------ */
   about: {
+    externalProfile: {
+      label: "Dr. Zhihua Deng at AIone Lab",
+      role: "AI Engineer · Energy systems, robotics and embedded AI",
+      href: "https://aionelab.com/about/#our-team"
+    },
     paragraphs: [
       "Dr. Deng is a <strong>Senior Research Engineer I</strong> at the <strong>Energy Research Institute at NTU "
       + "(ERI@N)</strong>, Nanyang Technological University, Singapore. His research focuses on "
@@ -218,9 +223,10 @@ const SITE = {
       title: "Renewable hydrogen production",
       category: "HYDROGRID AEM",
       duration: "60 seconds",
-      src: "assets/media/demos/hydrogrid-aem-professional-v6.mp4",
-      poster: "assets/media/demos/hydrogrid-aem-professional-v6.jpg",
-      captions: "assets/media/demos/hydrogrid-aem-professional-v6.vtt",
+      src: "assets/media/demos/hydrogrid-aem-professional-v7.mp4",
+      poster: "assets/media/demos/hydrogrid-aem-professional-v7.jpg",
+      captions: "assets/media/demos/hydrogrid-aem-professional-v7.vtt",
+      authors: "Dr. Zhihua Deng, Dr. Bin Miao, Prof. Siew Hwa Chan",
       chapters: [{time: 0, title: "System"}, {time: 12, title: "Renewables"}, {time: 24, title: "Stack"}, {time: 36, title: "Cooling"}, {time: 48, title: "Gas circuits"}],
       transcript: ["Unity-Simulink co-simulation of a renewable-powered AEM electrolyser.", "Solar and wind generation are integrated with the DC bus.", "Simulated electrical and process signals describe electrolyser operation.", "Electrolyte circulation and cooling are shown with process signals.", "Hydrogen and oxygen storage vessels with pressure and flow signals."],
       description: "A Unity–Simulink platform linking variable solar and wind generation to an AEM electrolyser, electrical storage and balance-of-plant systems. The demonstration follows the power supply, stack and cooling circuits alongside live process signals.",
@@ -230,9 +236,10 @@ const SITE = {
       title: "Robotic fuel-cell experimentation",
       category: "Autonomous PEMFC lab",
       duration: "60 seconds",
-      src: "assets/media/demos/pemfc-autonomous-lab-professional-v7.mp4",
-      poster: "assets/media/demos/pemfc-autonomous-lab-professional-v7.jpg",
-      captions: "assets/media/demos/pemfc-autonomous-lab-professional-v7.vtt",
+      src: "assets/media/demos/pemfc-autonomous-lab-professional-v8.mp4",
+      poster: "assets/media/demos/pemfc-autonomous-lab-professional-v8.jpg",
+      captions: "assets/media/demos/pemfc-autonomous-lab-professional-v8.vtt",
+      authors: "Dr. Zhihua Deng, Dr. Bin Miao, Prof. Siew Hwa Chan",
       chapters: [{time: 0, title: "Engagement"}, {time: 8, title: "Load adjustment"}, {time: 20, title: "Response"}, {time: 30, title: "Shutdown"}, {time: 35, title: "Valve closure"}, {time: 50, title: "Release"}],
       transcript: ["The gripper engages the load-adjustment knob.", "The robot increases the current demand from 1 A to 2 A.", "Simulated current and stack voltage show the response to the load change.", "Separate shutdown run - load removal precedes valve closure.", "The robot turns the valve handle towards the closed position.", "Valve-status feedback indicates closure before gripper release."],
       description: "A robotic-arm testbed model for fuel-cell experimentation. Close-up views connect gripper and valve actions, load adjustment and electrical feedback within a native Simulink co-simulation.",
@@ -242,11 +249,24 @@ const SITE = {
       title: "Hybrid hydrogen UAV co-simulation",
       category: "Fuel-cell–battery propulsion",
       duration: "1 min 52 s",
-      src: "assets/media/demos/hybrid-uav-cinematic-v7.mp4",
-      poster: "assets/media/demos/hybrid-uav-cinematic-v7.jpg",
-      captions: "assets/media/demos/hybrid-uav-cinematic-v7.vtt",
+      src: "assets/media/demos/hybrid-uav-cinematic-v8.mp4",
+      poster: "assets/media/demos/hybrid-uav-cinematic-v8.jpg",
+      captions: "assets/media/demos/hybrid-uav-cinematic-v8.vtt",
+      authors: "Dr. Zhihua Deng, Dr. Bin Miao, Prof. Siew Hwa Chan",
       description: "Integrated flight and powertrain co-simulation, from takeoff and accelerating climb to cruise, obstacle avoidance, descent and touchdown. Close-up views retain the complete flight-path trace, synchronized power data and native Simulink histories of DC-bus voltage, battery SOC and stack temperature.",
       recording: "Recorded on 25 October 2026 from an independently verified mission copy. The visible and headless runs matched at all 36,000 integration intervals for position, velocity and propulsion-power fields. Each captured frame is aligned to its native model tick; delivered shaft power is computed from logged torque and angular speed. Continuous captured wall time is preserved without acceleration; only initialization and terminal idle are trimmed. The model clock is visible. This reference-aircraft software demonstration is not a calibrated flight model, hardware test, real-time qualification or energy-management benchmark."
+    }
+  ],
+  // External research pages are separate from recordings: no placeholder video.
+  researchLinks: [
+    {
+      title: "AIone Lab",
+      category: "Applied AI & robotics",
+      strapline: "Intelligent systems, from software to hardware.",
+      topics: ["Intelligent automation", "Hardware–AI integration", "Applied AI education"],
+      description: "AIone Lab brings together projects in intelligent automation, hardware–AI integration and applied AI education. Dr. Zhihua Deng contributes as an AI Engineer, with interests in energy management, robotics and embedded AI.",
+      href: "https://aionelab.com/about/#our-team",
+      linkLabel: "View Dr. Deng’s team profile"
     }
   ],
   media: [
