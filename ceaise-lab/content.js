@@ -29,7 +29,7 @@ window.CEAISE_DATA = {
   {id:'ammonia-sofc',category:'AMMONIA TO POWER',title:'Ammonia cracking + SOFC',duration:'1:30',src:'assets/videos/ammonia-sofc.mp4',poster:'assets/posters/ammonia-sofc.jpg',captions:'assets/captions/ammonia-sofc.vtt',description:'A heat-integrated design-model replay linking ammonia supply and cracking, SOFC electricity generation, heat recovery and battery-assisted power allocation.',scope:'Numerical-model replay using native Simulink samples. The original recording retains its full coauthor credits.'}
  ],
  people: [
-  {name:'Dr. Zhihua Deng',lab:'CEAISE Lab',image:'assets/team/zhihua-deng.jpg',position:'50% 16%',affiliation:'Fuel Cell Lab · NTU Singapore',link:'https://dzh001-energy.github.io/?v=1f0188d#media',label:'Personal website',note:'Author-supplied portrait'},
+  {name:'Dr. Zhihua Deng',image:'assets/team/zhihua-deng.jpg',position:'50% 16%',affiliation:'Fuel Cell Lab · NTU Singapore',link:'https://dzh001-energy.github.io/?v=1f0188d#media',label:'Personal website',note:'Author-supplied portrait'},
   {name:'Dr. Bin Miao',image:'assets/team/bin-miao.jpg',position:'50% 15%',affiliation:'Fuel Cell Lab · NTU Singapore',link:'https://aionelab.com/',label:'AIone Lab website',note:'Portrait: NTU'},
   {name:'Prof. Siew Hwa Chan',image:'assets/team/siew-hwa-chan.png',position:'50% 20%',affiliation:'Fuel Cell Lab · NTU Singapore',link:'https://www.ntu.edu.sg/erian/about-us/our-people',label:'NTU profile',note:'Portrait: NTU'}
  ]

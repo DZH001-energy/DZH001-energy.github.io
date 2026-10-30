@@ -40,5 +40,3 @@ html{scroll-padding-top:134px}.header-inner{min-height:112px;gap:30px}.brand{gap
 @media(max-width:370px){.brand-lab{display:none}.brand{font-size:1.125rem}}
 
 
-.team-info .team-lab{font-weight:600;color:var(--ink);margin:8px 0 3px}
-.team-info .team-lab+p{margin-top:0}
