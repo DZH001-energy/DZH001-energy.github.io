@@ -1,0 +1,41 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:08.000
+01  NITROGEN PURGE
+Nitrogen flows through the fuel preheater, cracker and anode before fuel admission.
+
+2
+00:00:08.000 --> 00:00:20.000
+02  CONTROLLED COLD START
+External electric heating raises the thermal inventories. Physical time is accelerated.
+
+3
+00:00:20.000 --> 00:00:30.000
+03  AMMONIA CRACKING / CURRENT RAMP
+Current is admitted after the model temperature and conversion checks.
+
+4
+00:00:30.000 --> 00:00:40.000
+04  HEAT-INTEGRATED GENERATION
+Separate anode and cathode exhaust streams supply the tail-gas oxidizer and heat cascade.
+
+5
+00:00:40.000 --> 00:00:50.000
+05  ISLANDED LOAD TRANSITIONS
+Battery power buffers the load increase and reduction while SOFC current ramps.
+
+6
+00:00:50.000 --> 00:01:00.000
+06  METERED SOC RESTORATION
+SOC returns to 0.65 through the battery power port. External electricity remains counted.
+
+7
+00:01:00.000 --> 00:01:10.000
+07  FUEL / CURRENT SHUTDOWN
+Fuel and current decrease; recovery is bypassed and nitrogen purge resumes.
+
+8
+00:01:10.000 --> 00:01:30.000
+08  CONTROLLED COOLDOWN
+Cathode air assists cooling; nitrogen purge continues. Below 80 C is a model endpoint.

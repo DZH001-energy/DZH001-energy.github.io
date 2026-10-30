@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:08.000
+The gripper engages the load-adjustment knob.
+
+00:00:08.000 --> 00:00:20.000
+The robot increases the current demand from 1 A to 2 A.
+
+00:00:20.000 --> 00:00:30.000
+Simulated current and stack voltage show the response to the load change.
+
+00:00:30.000 --> 00:00:35.000
+Separate shutdown run - load removal precedes valve closure.
+
+00:00:35.000 --> 00:00:50.000
+The robot turns the valve handle towards the closed position.
+
+00:00:50.000 --> 00:01:00.000
+Valve-status feedback indicates closure before gripper release.
